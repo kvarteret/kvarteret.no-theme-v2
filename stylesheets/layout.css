@@ -1,0 +1,298 @@
+/*
+* Kvarteret.no v2.0
+* Copyright 2012, Det Akademiske Kvarter
+* http://kvarteret.no
+* Developed by: 
+* 	Torstein Thune (http://thunemedia.no)
+*	Snorre Davøen (http://github.com/snorremd)
+*	Lisa Halvorsen (http://github.com/lha047)
+*/
+
+/* Table of Content
+==================================================
+	#Site Styles
+	#Page Styles
+	#Media Queries
+	#Font-Face */
+
+/* #Site Styles
+================================================== */
+.left {
+	loat:left;
+}
+.no_padding {
+	padding: 0 !important;
+}
+.no_margin {
+	margin:0 !important;
+}
+.no_right_margin {
+	margin-right: 0 !important;
+}
+.no_left_margin {
+	margin-left: 0 !important;
+}
+
+body {
+	background: url('../images/background.jpg') center top no-repeat #000;
+	font-family: Tahoma, Helvetica, Arial, sans-serif;
+}
+.standard_wrapper {
+	background: #fff;
+}
+
+img.responsive {
+	width: 100%;
+	height: auto;
+}
+
+header {
+	margin-top: 150px;
+	position: relative;
+	background: #fff;
+	
+	padding-top: 12px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+	header:before {
+		border-left: 475px solid transparent;
+		border-right: 475px solid transparent;
+		border-bottom: 114px solid #fff;
+		position: absolute;
+		top:-114px;
+		left: 5px;
+		content:''
+		
+	}
+	#kvarteret_feeds {
+		position:absolute;
+		top: -30px;
+		right: 50%;
+		margin-right: 100px;
+	}
+		#kvarteret_feeds li{
+			display: inline-block;
+			margin-left: 10px;
+		}
+	#search {
+		position: absolute;
+		top: -30px;
+		left: 50%;
+		margin-left: 100px;
+	}
+		#search input {
+			border: 1px solid #ccc;
+			border-radius: 3px;
+			width: 100px;
+			float:left;
+		}
+		#search button {
+			text-indent: -9999px;
+			background: url('../images/search.png') center center no-repeat;
+			width: 25px;
+			margin-top:-1px;
+
+			border: 0;
+		}
+	header nav {			
+		background: rgb(229,25,15); /* Old browsers */
+		background: -moz-linear-gradient(top,  rgba(229,25,15,1) 0%, rgba(168,18,11,1) 100%, rgba(168,18,11,1) 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(229,25,15,1)), color-stop(100%,rgba(168,18,11,1)), color-stop(100%,rgba(168,18,11,1))); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  rgba(229,25,15,1) 0%,rgba(168,18,11,1) 100%,rgba(168,18,11,1) 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  rgba(229,25,15,1) 0%,rgba(168,18,11,1) 100%,rgba(168,18,11,1) 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  rgba(229,25,15,1) 0%,rgba(168,18,11,1) 100%,rgba(168,18,11,1) 100%); /* IE10+ */
+		background: linear-gradient(to bottom,  rgba(229,25,15,1) 0%,rgba(168,18,11,1) 100%,rgba(168,18,11,1) 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5190f', endColorstr='#a8120b',GradientType=0 ); /* IE6-9 */
+		
+		font-family: 'Bebas Neue', Tahoma, Helvetica, Arial, sans-serif;
+		font-size: 1.5em;
+		height: 46px;
+		
+		position: relative;
+		width: 960px;
+		margin-left: -12px;
+		
+		padding-left: 12px;
+		padding-right: 12px;
+	}
+		header nav:before {
+			border-bottom: 12px solid transparent;
+			border-right: 12px solid #850E07;
+			border-left: 12px solid transparent;
+			content: '';
+			position: absolute;
+			bottom: -12px;
+			z-index: 10;
+			left: -12px;
+		}
+		header nav:after {
+			border-bottom: 12px solid transparent;
+			border-left: 12px solid #850E07;
+			border-right: 12px solid transparent;
+			content: '';
+			position: absolute;
+			bottom: -12px;
+			z-index: 10;
+			right: -12px;
+		}
+		header nav#main_nav a {
+			line-height: 46px;
+			color: #fff;
+			text-decoration: none;
+		}
+			header #main_nav .left {
+				margin: 0;
+				margin-left: 12px;
+			}
+				header #main_nav .left li {
+					float: left;
+					margin-right: 15px;
+				}
+			header #main_nav .right {
+				margin:0;
+				margin-right: 12px;
+			}
+				header #main_nav .right li {
+					float: right;
+					margin-left: 15px;
+				}
+	#logo {
+		display: block;
+		position:absolute;
+		z-index: 10;
+		margin: 0 auto;
+		width: 124px;
+		left: 50%;
+		margin-left: -60px;
+		top: -86px;
+	}
+	#language_selection {
+		position:absolute;
+		top: 0;
+		right: 0;
+	}
+#opening_times {
+	text-align:center;
+	padding: 12px;
+	
+	position:relative;
+	z-index:1;
+	
+	background: #eee;
+}
+	#opening_times ul {
+		list-style: disc outside none;
+		margin:0;
+	}
+		#opening_times li {
+			display: inline-block;
+			margin-bottom:0;
+		}
+	
+.content_container {
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	margin-bottom: 12px;
+}
+	.sidebar {
+		float: right;
+	}
+		
+
+footer.standard_wrapper {
+	background: rgb(64,64,64); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(64,64,64,1) 0%, rgba(26,26,26,1) 100%); /* FF3.6+ */
+	background: url(../images/footer-penguins.png) bottom center no-repeat, -webkit-linear-gradient(top,  rgba(64,64,64,1) 0%,rgba(26,26,26,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(64,64,64,1) 0%,rgba(26,26,26,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(64,64,64,1) 0%,rgba(26,26,26,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(64,64,64,1) 0%,rgba(26,26,26,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#404040', endColorstr='#1a1a1a',GradientType=0 ); /* IE6-9 */
+	
+	border-radius: 5px;
+	border: 1px solid #404040;
+	
+	min-height: 285px;
+	margin-bottom: 12px;
+
+}
+	footer nav {
+	}
+
+/* #Page Styles
+================================================== */
+
+/* Frontpage */
+.photostream {
+	height: 500px;
+	background: #000;
+	color: #fff;
+}
+	.photostream h2 {
+		color: #fff;
+	}
+
+/* #Media Queries
+================================================== */
+
+	/* Smaller than standard 960 (devices and browsers) */
+	@media only screen and (max-width: 959px) {
+		
+		header {
+			margin-top: 24px;
+		}
+			header:before {
+				border:0;
+			}
+			#logo {
+				position: relative;
+				top: 40px;
+			}
+			header nav {
+				width: auto;
+				margin-left: 0;
+			}
+				header nav:before, header nav:after {
+					border:0;
+				}
+			#kvarteret_feeds, #search {
+				top: 20px;
+				postion: relative;
+			}
+		
+	}
+
+	/* Tablet Portrait size to standard 960 (devices and browsers) */
+	@media only screen and (min-width: 768px) and (max-width: 959px) {
+	
+	}
+
+	/* All Mobile Sizes (devices and browser) */
+	@media only screen and (max-width: 767px) {
+	
+	}
+
+	/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+	@media only screen and (min-width: 480px) and (max-width: 767px) {
+	
+	}
+
+	/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+	@media only screen and (max-width: 479px) {
+	
+	}
+
+
+/* #Font-Face
+================================================== */
+@font-face {
+    font-family: 'BebasNeueRegular';
+    src: url('fonts/bebasneue-webfont.eot');
+    src: url('fonts/bebasneue-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/bebasneue-webfont.woff') format('woff'),
+         url('fonts/bebasneue-webfont.ttf') format('truetype'),
+         url('fonts/bebasneue-webfont.svg#') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
