@@ -20,6 +20,12 @@
 .left {
 	loat:left;
 }
+.center {
+	margin: 0 auto;
+}
+.text_center {
+	text-align: center;
+}
 .no_padding {
 	padding: 0 !important;
 }
@@ -115,6 +121,9 @@ header {
 		
 		padding-left: 12px;
 		padding-right: 12px;
+
+		border-top-left-radius: 3px;
+		border-top-right-radius: 3px;
 	}
 		header nav:before {
 			border-bottom: 12px solid transparent;
@@ -141,22 +150,35 @@ header {
 			color: #fff;
 			text-decoration: none;
 		}
+		header #main_nav .left > li, header #main_nav .right > li {
+			position: relative;
+		}
 			header #main_nav .left {
 				margin: 0;
 				margin-left: 12px;
 			}
-				header #main_nav .left li {
+				header #main_nav .left > li {
 					float: left;
 					margin-right: 15px;
 				}
 			header #main_nav .right {
 				margin:0;
 				margin-right: 12px;
+				text-align: right;
 			}
-				header #main_nav .right li {
-					float: right;
+				header #main_nav .right > li {
+					display: inline-block;
 					margin-left: 15px;
 				}
+		header nav .sub-menu {
+			position: absolute;
+			left: 50%;
+			margin-left; -100px;
+			width: 200px;
+			background: rgba(0,0,0,0.8);
+			border-radius: 5px;
+			z-index: 20;
+		}
 	#logo {
 		display: block;
 		position:absolute;
@@ -199,23 +221,28 @@ header {
 		float: right;
 	}
 		
-
-footer.standard_wrapper {
-	background: rgb(64,64,64); /* Old browsers */
-	background: -moz-linear-gradient(top,  rgba(64,64,64,1) 0%, rgba(26,26,26,1) 100%); /* FF3.6+ */
-	background: url(../images/footer-penguins.png) bottom center no-repeat, -webkit-linear-gradient(top,  rgba(64,64,64,1) 0%,rgba(26,26,26,1) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  rgba(64,64,64,1) 0%,rgba(26,26,26,1) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  rgba(64,64,64,1) 0%,rgba(26,26,26,1) 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  rgba(64,64,64,1) 0%,rgba(26,26,26,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#404040', endColorstr='#1a1a1a',GradientType=0 ); /* IE6-9 */
-	
-	border-radius: 5px;
-	border: 1px solid #404040;
-	
-	min-height: 285px;
-	margin-bottom: 12px;
-
+footer {
+	margin-bottom: 48px;
 }
+	footer .standard_wrapper {
+		background: rgb(64,64,64); /* Old browsers */
+		background: -moz-linear-gradient(top,  rgba(64,64,64,1) 0%, rgba(26,26,26,1) 100%); /* FF3.6+ */
+		background: url(../images/footer-penguins.png) bottom center no-repeat, -webkit-linear-gradient(top,  rgba(64,64,64,1) 0%,rgba(26,26,26,1) 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  rgba(64,64,64,1) 0%,rgba(26,26,26,1) 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  rgba(64,64,64,1) 0%,rgba(26,26,26,1) 100%); /* IE10+ */
+		background: linear-gradient(to bottom,  rgba(64,64,64,1) 0%,rgba(26,26,26,1) 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#404040', endColorstr='#1a1a1a',GradientType=0 ); /* IE6-9 */
+		
+		border-radius: 5px;
+		border: 1px solid #404040;
+		
+		min-height: 285px;
+		margin-bottom: 12px;
+
+	}
+	footer p {
+		color: #fff;
+	}
 	footer nav {
 	}
 

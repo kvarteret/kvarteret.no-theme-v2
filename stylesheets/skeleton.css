@@ -56,6 +56,14 @@
     .container .one-third.column                { width: 300px; }
     .container .two-thirds.column               { width: 620px; }
 
+    .two-thirds.column.alpha, .two-thirds.column.omega {
+        width: 630px;
+    }
+
+    .two-thirds.column.alpha.contains_two_columns .one-third:nth-child(even) {
+        margin-right: 0;
+    }
+
     /* Offsets */
     .container .offset-by-one                   { padding-left: 60px;  }
     .container .offset-by-two                   { padding-left: 120px; }
