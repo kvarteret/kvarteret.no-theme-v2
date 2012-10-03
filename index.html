@@ -40,7 +40,10 @@
 	
 		<header>
 		
-			<a href="http://kvarteret.no" id="logo"><img src="images/kvarteret.png" alt="Det Akademiske Kvarter" /></a>
+			<a href="http://kvarteret.no" id="logo" class="clearfix">
+				<img src="images/kvarteret.png" id="logo_light" alt="Det Akademiske Kvarter" />
+				<img id="logo_dark" src="images/kvarteret_dark.png" alt="Det Akademiske Kvarter" />
+			</a>
 			
 			<ul id="kvarteret_feeds" class="">
 				<li><a href=""><img src="images/facebook.png" alt="Facebook" /></a></li>
@@ -90,7 +93,16 @@
 		</section>
 		
 		<section id="frontpage_articles" class="standard_wrapper content_container clearfix">
-			<ul id="featured_articles" class="sixteen columns">
+			<h1 class="hidden">Nyheter</h1>
+			<ul id="featured_articles" class="sixteen no_margin no_padding columns featured_articles" style="width:100%">
+				<li>
+					<article>
+						<a href="" class="clearfix">
+							<img src="http://placekitten.com/960/496" class="article_thumbnail responsive" alt="" />
+							<h2>Post title</h2>
+						</a>
+					</article>
+				</li>
 			</ul>
 			
 			<article class="one-third column">
@@ -180,11 +192,13 @@
 		<footer>
 			<div class="standard_wrapper">
 			</div>
-			<p class="center text_center">Kvarteret.no - Nettredaktør: Siv K. Berg • Teknisk ansvarlig: Torstein Thune<br /><br /> 
+			<p class="center text_center">
+				Kvarteret.no - Nettredaktør: Ingrid Aarseth Johannessen • Teknisk ansvarlig: Torstein Thune<br /><br /> 
 
-			Funnet en bug og kan løse den: git • kan ikke løse den: webgruppen@kvarteret.no<br /><br />
+				Funnet en bug og kan løse den: <a href="http://github.com/kvarteret">git</a> • kan ikke løse den: <a href="mailto:pr.web@kvarteret.no">webgruppen@kvarteret.no</a><br /><br />
 
-			©2012 Det Akademiske Kvarter</p>
+				©2012 Det Akademiske Kvarter
+			</p>
 		</footer>
 
 	</div><!-- container -->

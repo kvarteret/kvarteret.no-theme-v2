@@ -117,6 +117,14 @@
         .container .one-third.column                { width: 236px; }
         .container .two-thirds.column               { width: 492px; }
 
+        .two-thirds.column.alpha, .two-thirds.column.omega {
+            width: 502px;
+        }
+
+        .two-thirds.column.alpha.contains_two_columns .one-third:nth-child(even) {
+            margin-right: 0;
+        }
+
         /* Offsets */
         .container .offset-by-one                   { padding-left: 48px; }
         .container .offset-by-two                   { padding-left: 96px; }

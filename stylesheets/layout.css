@@ -38,6 +38,9 @@
 .no_left_margin {
 	margin-left: 0 !important;
 }
+.hidden {
+	display: none;
+}
 
 body {
 	background: url('../images/background.jpg') center top no-repeat #000;
@@ -101,6 +104,9 @@ header {
 
 			border: 0;
 		}
+			#search button:active {
+				margin-top:0;
+			}
 	header nav {			
 		background: rgb(229,25,15); /* Old browsers */
 		background: -moz-linear-gradient(top,  rgba(229,25,15,1) 0%, rgba(168,18,11,1) 100%, rgba(168,18,11,1) 100%); /* FF3.6+ */
@@ -150,6 +156,10 @@ header {
 			color: #fff;
 			text-decoration: none;
 		}
+			header nav#main_nav a:hover {
+				color: #ccc;
+				text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+			}
 		header #main_nav .left > li, header #main_nav .right > li {
 			position: relative;
 		}
@@ -178,6 +188,7 @@ header {
 			background: rgba(0,0,0,0.8);
 			border-radius: 5px;
 			z-index: 20;
+			display:none;
 		}
 	#logo {
 		display: block;
@@ -188,6 +199,9 @@ header {
 		left: 50%;
 		margin-left: -60px;
 		top: -86px;
+	}
+	#logo_dark {
+		display: none;
 	}
 	#language_selection {
 		position:absolute;
@@ -250,6 +264,24 @@ footer {
 ================================================== */
 
 /* Frontpage */
+.featured_articles a.clearfix {
+	position: relative;
+	display: block;
+	text-decoration: none;
+}
+.featured_articles h2 {
+	background: rgba(0,0,0,0.9);
+	position:absolute;
+	bottom:0;
+
+	font-family: 'Bebas Neue', Tahoma, sans-serif;
+	font-size: 40px;
+	line-height: 82px;
+	color: #fff;
+	text-align:center;
+	width: 100%;
+}
+
 .photostream {
 	height: 500px;
 	background: #000;
@@ -264,39 +296,75 @@ footer {
 
 	/* Smaller than standard 960 (devices and browsers) */
 	@media only screen and (max-width: 959px) {
-		
+		#logo_dark {
+			display:inline;
+		}
+		#logo_light {
+			display:none;
+		}
+	}
+
+	/* Tablet Portrait size to standard 960 (devices and browsers) */
+	@media only screen and (min-width: 768px) and (max-width: 959px) {
 		header {
-			margin-top: 24px;
+			margin-top: 113px;
+			/*height: 100px;*/
+		}
+			header:before {
+				border-left: 379px solid transparent;
+				border-right: 379px solid transparent;
+				border-bottom: 89px solid #fff;
+				top: -89px;
+			}
+			#logo {
+				top: -75px;
+			}
+				
+			header nav {
+				width: 768px;
+				margin-top: 60px;
+			}
+				/*header nav:before, header nav:after {
+					border:0;
+				}*/
+			#kvarteret_feeds, #search {
+				top: 0px;
+				postion: relative;
+			}
+	}
+
+	/* All Mobile Sizes (devices and browser) */
+	@media only screen and (max-width: 767px) {
+		header {
+			margin-top: 64px;
 		}
 			header:before {
 				border:0;
 			}
 			#logo {
-				position: relative;
-				top: 40px;
+				position:static;
+				margin:0 auto;
 			}
-			header nav {
-				width: auto;
-				margin-left: 0;
-			}
-				header nav:before, header nav:after {
-					border:0;
-				}
 			#kvarteret_feeds, #search {
-				top: 20px;
-				postion: relative;
+				position: static;
 			}
-		
-	}
+			#kvarteret_feeds {
+				float:left;
+				margin-top: 24px;
+			}
+			#search {
+				float:right;
+				margin-top:-30px;
+			}
+			#main_nav {
+				clear:both;
+				position: fixed;
+				z-index: 100;
+				top:0;
+				left:0;
+				width:100%;
+			}
 
-	/* Tablet Portrait size to standard 960 (devices and browsers) */
-	@media only screen and (min-width: 768px) and (max-width: 959px) {
-	
-	}
-
-	/* All Mobile Sizes (devices and browser) */
-	@media only screen and (max-width: 767px) {
-	
 	}
 
 	/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
@@ -306,6 +374,13 @@ footer {
 
 	/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
 	@media only screen and (max-width: 479px) {
+		
+		#kvarteret_feeds, #search {
+			display:block;
+			text-align:center;
+			float:none;
+			margin: 12px auto 12px auto;
+		}
 	
 	}
 
