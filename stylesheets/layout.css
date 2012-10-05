@@ -20,6 +20,9 @@
 .left {
 	loat:left;
 }
+.right {
+	float: right;
+}
 .center {
 	margin: 0 auto;
 }
@@ -55,7 +58,7 @@ img.responsive {
 	height: auto;
 }
 
-header {
+header#main_header {
 	margin-top: 150px;
 	position: relative;
 	background: #fff;
@@ -64,7 +67,7 @@ header {
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
 }
-	header:before {
+	#main_header:before {
 		border-left: 475px solid transparent;
 		border-right: 475px solid transparent;
 		border-bottom: 114px solid #fff;
@@ -107,7 +110,7 @@ header {
 			#search button:active {
 				margin-top:0;
 			}
-	header nav {			
+	#main_header #main_nav {			
 		background: rgb(229,25,15); /* Old browsers */
 		background: -moz-linear-gradient(top,  rgba(229,25,15,1) 0%, rgba(168,18,11,1) 100%, rgba(168,18,11,1) 100%); /* FF3.6+ */
 		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(229,25,15,1)), color-stop(100%,rgba(168,18,11,1)), color-stop(100%,rgba(168,18,11,1))); /* Chrome,Safari4+ */
@@ -131,7 +134,21 @@ header {
 		border-top-left-radius: 3px;
 		border-top-right-radius: 3px;
 	}
-		header nav:before {
+		li.active {
+			position:relative;
+		}
+		#main_nav li.current-menu-item:after, li.active:after {
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			margin-left: -8px;
+			border-bottom: 8px solid #fff;
+			border-left: 8px solid transparent;
+			border-right: 8px solid transparent;
+			content: '';
+
+		}
+		#main_header #main_nav:before {
 			border-bottom: 12px solid transparent;
 			border-right: 12px solid #850E07;
 			border-left: 12px solid transparent;
@@ -141,7 +158,7 @@ header {
 			z-index: 10;
 			left: -12px;
 		}
-		header nav:after {
+		#main_header #main_nav:after {
 			border-bottom: 12px solid transparent;
 			border-left: 12px solid #850E07;
 			border-right: 12px solid transparent;
@@ -151,36 +168,36 @@ header {
 			z-index: 10;
 			right: -12px;
 		}
-		header nav#main_nav a {
+		#main_header #main_nav a {
 			line-height: 46px;
 			color: #fff;
 			text-decoration: none;
 		}
-			header nav#main_nav a:hover {
+			#main_header #main_nav a:hover {
 				color: #ccc;
 				text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 			}
-		header #main_nav .left > li, header #main_nav .right > li {
+		#main_header #main_nav .left > li, #main_header #main_nav .right > li {
 			position: relative;
 		}
-			header #main_nav .left {
+			#main_header #main_nav .left {
 				margin: 0;
 				margin-left: 12px;
 			}
-				header #main_nav .left > li {
+				#main_header #main_nav .left > li {
 					float: left;
 					margin-right: 15px;
 				}
-			header #main_nav .right {
+			#main_header #main_nav .right {
 				margin:0;
 				margin-right: 12px;
 				text-align: right;
 			}
-				header #main_nav .right > li {
+				#main_header #main_nav .right > li {
 					display: inline-block;
 					margin-left: 15px;
 				}
-		header nav .sub-menu {
+		#main_header #main_nav .sub-menu {
 			position: absolute;
 			left: 50%;
 			margin-left; -100px;
@@ -225,6 +242,36 @@ header {
 			display: inline-block;
 			margin-bottom:0;
 		}
+
+header.event {
+	background: #000;
+	color: #fff;
+	padding: 0px 24px;
+	margin: 0;
+	height: 35px;
+	line-height: 35px;
+}
+	header.event h2 {
+		float:left;
+		color: #fff;
+		font-family: 'Bebas Neue', Tahoma, sans-serif;
+		line-height: 35px;
+	}
+	header.event a {
+		color: #fff;
+	}
+	header.event nav ul {
+		text-align: center;
+		padding: 0;
+		margin:0;
+		height: 35px;
+	}
+		header.event nav li {
+			display: inline-block;
+			height: 35px;
+			margin:0;
+			padding: 0px 6px;
+		}
 	
 .content_container {
 	border-bottom-left-radius: 5px;
@@ -237,8 +284,11 @@ header {
 		
 footer {
 	margin-bottom: 48px;
+	
 }
 	footer .standard_wrapper {
+		padding-top: 24px;
+		padding-left: 48px;
 		background: rgb(64,64,64); /* Old browsers */
 		background: -moz-linear-gradient(top,  rgba(64,64,64,1) 0%, rgba(26,26,26,1) 100%); /* FF3.6+ */
 		background: url(../images/footer-penguins.png) bottom center no-repeat, -webkit-linear-gradient(top,  rgba(64,64,64,1) 0%,rgba(26,26,26,1) 100%); /* Chrome10+,Safari5.1+ */
@@ -252,7 +302,16 @@ footer {
 		
 		min-height: 285px;
 		margin-bottom: 12px;
+		text-align:center;
 
+	}
+		footer .standard_wrapper div, footer .standard_wrapper h2 {
+			text-align:left;
+		}
+	footer h2 {
+		font-size: 14px;
+		font-weight: bold;
+		color: #ccc;
 	}
 	footer p {
 		color: #fff;
@@ -364,6 +423,11 @@ footer {
 				left:0;
 				width:100%;
 			}
+
+		.featured_articles h2 {
+			position: static;
+			background: #000;
+		}
 
 	}
 
