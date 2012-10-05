@@ -365,11 +365,11 @@ footer {
 
 	/* Tablet Portrait size to standard 960 (devices and browsers) */
 	@media only screen and (min-width: 768px) and (max-width: 959px) {
-		header {
+		#main_header {
 			margin-top: 113px;
 			/*height: 100px;*/
 		}
-			header:before {
+			#main_header:before {
 				border-left: 379px solid transparent;
 				border-right: 379px solid transparent;
 				border-bottom: 89px solid #fff;
@@ -379,7 +379,7 @@ footer {
 				top: -75px;
 			}
 				
-			header nav {
+			#main_header #main_nav {
 				width: 768px;
 				margin-top: 60px;
 			}
@@ -394,10 +394,10 @@ footer {
 
 	/* All Mobile Sizes (devices and browser) */
 	@media only screen and (max-width: 767px) {
-		header {
-			margin-top: 64px;
+		#main_header {
+			margin-top: 64px !important;
 		}
-			header:before {
+			#main_header:before {
 				border:0;
 			}
 			#logo {
@@ -415,13 +415,15 @@ footer {
 				float:right;
 				margin-top:-30px;
 			}
-			#main_nav {
+			#main_header #main_nav {
 				clear:both;
 				position: fixed;
 				z-index: 100;
 				top:0;
 				left:0;
 				width:100%;
+
+				box-shadow: 5px 0px 5px 5px rgba(0,0,0,0.5);
 			}
 
 		.featured_articles h2 {
