@@ -61,9 +61,24 @@
 
 /* #Typography
 ================================================== */
+
+/* #Font-Face
+================================================== */
+@font-face {
+    font-family: 'BebasNeueRegular';
+    src: url('fonts/bebasneue-webfont.eot');
+    src: url('fonts/bebasneue-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/bebasneue-webfont.woff') format('woff'),
+         url('fonts/bebasneue-webfont.ttf') format('truetype'),
+         url('fonts/bebasneue-webfont.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 	h1, h2, h3, h4, h5, h6 {
 		color: #181818;
-		font-family: "Tahoma", serif;
+		font-family: "BebasNeueRegular", serif;
 		font-weight: normal; }
 	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { font-weight: inherit; }
 	h1 { font-size: 46px; line-height: 50px; margin-bottom: 14px;}
