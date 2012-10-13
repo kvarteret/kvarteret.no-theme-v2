@@ -23,23 +23,35 @@ get_header(); ?>
 		        $current_news = get_posts('numberposts=10&category_name=aktuelt,featured'); // all frontpage news
         	?>
 			<h1 class="hidden">Nyheter</h1>
-			<ul id="featured_articles" class="sixteen no_margin no_padding columns featured_articles" style="width:100%">
+			<section id="featured_articles" class="sixteen no_margin no_padding columns featured_articles carousel slide">
+				<div class="carousel-inner">
 				<?php
 				// start featured news loop
+				$featuredi = 0;
 			  	foreach($featured as $post) :
 					setup_postdata($post);
+					$featuredi++
 				?>
-				<li>
-					<article>
-						<a  href="<?php the_permalink(); ?>" class="clearfix">
+
+					<article class="item <?php if($featuredi == 1) { echo 'active'; } ?>">
+						<a href="<?php the_permalink(); ?>" class="clearfix">
 							<!-- <img src="http://placekitten.com/960/496" class="article_thumbnail responsive" alt="" /> -->
 							<?php the_post_thumbnail('full-thumbnail', array('class' => 'article_thumbnail responsive')); ?>
 							<h2><?php the_title(); ?></h2>
 						</a>
 					</article>
-				</li>
 				<?php endforeach; ?>
-			</ul>
+					<article class="item">
+						<a href="#" class="clearfix">
+							<img src="http://placekitten.com/960/496" class="article_thumbnail responsive" alt="" />
+							
+							<h2>Dumdedum</h2>
+						</a>
+					</article>
+				</div>
+				<a class="carousel-control left" href="#featured_articles" data-slide="prev">&lsaquo;</a>
+  				<a class="carousel-control right" href="#featured_articles" data-slide="next">&rsaquo;</a>
+			</section>
 
 			<?php
 				// start news loop

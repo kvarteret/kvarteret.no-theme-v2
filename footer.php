@@ -83,5 +83,9 @@
 	</div><!-- .container -->
 
 <?php wp_footer(); ?>
+
+<script type="text/javascript">
+	$('.carousel').carousel();
+</script>
 </body>
 </html>
