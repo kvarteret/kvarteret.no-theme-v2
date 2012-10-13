@@ -241,8 +241,8 @@ function twentytwelve_widgets_init() {
 		'description' => __( 'The navigational links in the  gradiented area of the footer', 'twentytwelve' ),
 		'before_widget' => '',
 		'after_widget' => '',
-		'before_title' => '',
-		'after_title' => '',
+		'before_title' => '<h2>',
+		'after_title' => '</h2>',
 	) );
 
 	register_sidebar( array(

@@ -383,6 +383,10 @@ footer {
 	width: 100%;
 }
 
+#frontpage_articles .one-third:nth-child(3n) {
+	clear: left;
+}
+
 /* frontpage */
 
 .photostream {
