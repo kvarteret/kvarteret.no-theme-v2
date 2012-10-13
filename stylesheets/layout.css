@@ -143,7 +143,7 @@ header#main_header {
 		background: linear-gradient(to bottom,  rgba(229,25,15,1) 0%,rgba(168,18,11,1) 100%,rgba(168,18,11,1) 100%); /* W3C */
 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5190f', endColorstr='#a8120b',GradientType=0 ); /* IE6-9 */
 		
-		font-family: 'Bebas Neue', Tahoma, Helvetica, Arial, sans-serif;
+		font-family: "BebasNeueRegular", "Bebas Neue", Tahoma, Helvetica, Arial, sans-serif;
 		font-size: 1.5em;
 		height: 46px;
 		
@@ -277,7 +277,7 @@ header.event {
 	header.event h2 {
 		float:left;
 		color: #fff;
-		font-family: 'Bebas Neue', Tahoma, sans-serif;
+		font-family: "BebasNeueRegular", "Bebas Neue", Tahoma, sans-serif;
 		line-height: 35px;
 	}
 	header.event a {
