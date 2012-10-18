@@ -614,16 +614,22 @@ footer {
 			background: #000;
 		}
 		footer .standard_wrapper {
-			text-align: center;
 			padding-left: 0;
-			padding-bottom: 130px;
 		}
+
 
 	}
 
 	/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
 	@media only screen and (min-width: 480px) and (max-width: 767px) {
-
+		footer .standard_wrapper .three.columns {
+			width: 50%;
+			padding: 0px 36px;
+			float:left;
+		}
+			footer .standard_wrapper .three.columns:nth-child(odd) {
+				clear:left;
+			}
 	}
 
 	/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
@@ -635,5 +641,9 @@ footer {
 			float:none;
 			margin: 12px auto 12px auto;
 		}
-	
+
+		footer .standard_wrapper {
+			text-align:center;
+			padding-bottom: 130px;
+		}
 	}
