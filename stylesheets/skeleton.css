@@ -150,7 +150,7 @@
     /* Note: Design for a width of 320px */
 
     @media only screen and (max-width: 767px) {
-        .container { width: 300px; }
+        .container { width: 100%; }
         .container .columns,
         .container .column { margin: 0; }
 
@@ -172,7 +172,7 @@
         .container .fifteen.columns,
         .container .sixteen.columns,
         .container .one-third.column,
-        .container .two-thirds.column  { width: 300px; }
+        .container .two-thirds.column  { width: 100%;box-sizing:border-box;} /* box-sizing breaks IE 8 < compatibility */
 
         /* Offsets */
         .container .offset-by-one,
@@ -200,7 +200,7 @@
     /* Note: Design for a width of 480px */
 
     @media only screen and (min-width: 480px) and (max-width: 767px) {
-        .container { width: 420px; }
+        .container { width: 95%; }
         .container .columns,
         .container .column { margin: 0; }
 
@@ -222,7 +222,7 @@
         .container .fifteen.columns,
         .container .sixteen.columns,
         .container .one-third.column,
-        .container .two-thirds.column { width: 420px; }
+        .container .two-thirds.column { width: 100%; box-sizing:border-box;} /* box-sizing breaks IE 8 < compatibility */
     }
 
 
