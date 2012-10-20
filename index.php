@@ -63,7 +63,13 @@ get_header(); ?>
 
 					<a href="<?php the_permalink(); ?>">
 						<!-- <img src="http://placekitten.com/300/155" class="article_thumbnail responsive" alt="" /> -->
-						<?php the_post_thumbnail('one-third-thumbnail',  array('class' => 'article_thumbnail responsive')); ?>
+						<?php
+							if(has_post_thumbnail()) {
+								the_post_thumbnail('one-third-thumbnail',  array('class' => 'article_thumbnail responsive'));
+							} else {
+								echo '<img src="' . get_bloginfo('template_directory') . '/images/missing_image_296x153.png" alt="" clasS="article_thumbnail responsive" />';
+							}
+						?>
 						<h2><?php the_title(); ?></h2>
 					</a>
 					<p><?php the_excerpt(); ?></p>

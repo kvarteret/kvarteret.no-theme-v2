@@ -52,7 +52,7 @@ function twentytwelve_setup() {
 	load_theme_textdomain( 'twentytwelve', get_template_directory() . '/languages' );
 
 	// This theme styles the visual editor with editor-style.css to match the theme style.
-	add_editor_style();
+	// add_editor_style();
 
 	// Adds RSS feed links to <head> for posts and comments.
 	add_theme_support( 'automatic-feed-links' );
@@ -76,9 +76,9 @@ function twentytwelve_setup() {
 	 * This theme supports custom background color and image, and here
 	 * we also set up the default background color.
 	 */
-	add_theme_support( 'custom-background', array(
-		'default-color' => 'e6e6e6',
-	) );
+	// add_theme_support( 'custom-background', array(
+	// 	'default-color' => 'e6e6e6',
+	// ) );
 
 	// This theme uses a custom image size for featured images, displayed on "standard" posts.
 	add_theme_support( 'post-thumbnails' );
@@ -88,11 +88,6 @@ function twentytwelve_setup() {
 	add_image_size( 'one-third-thumbnail', 296, 153, true );
 }
 add_action( 'after_setup_theme', 'twentytwelve_setup' );
-
-/**
- * Adds support for a custom header image.
- */
-require( get_template_directory() . '/inc/custom-header.php' );
 
 /**
  * Enqueues scripts and styles for front-end.
@@ -110,7 +105,7 @@ function twentytwelve_scripts_styles() {
 	/*
 	 * Adds JavaScript for handling the navigation menu hide-and-show behavior.
 	 */
-	wp_enqueue_script( 'twentytwelve-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '1.0', true );
+	// wp_enqueue_script( 'twentytwelve-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '1.0', true );
 
 	/*
 	 * Loads our special font CSS file.

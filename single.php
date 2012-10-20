@@ -12,7 +12,13 @@ get_header(); ?>
 	<article id="primary" class="standard_wrapper content_container clearfix">
 		<?php while ( have_posts() ) : the_post(); ?>
 		<header class="single_header article_header clearfix">
-			<?php the_post_thumbnail('full-thumbnail', array('class' => 'article_thumbnail responsive')); ?>
+			<?php 
+				if( has_post_thumbnail() ) {
+					the_post_thumbnail('full-thumbnail', array('class' => 'article_thumbnail responsive')); 
+				} else {
+					echo '<img src="' . get_bloginfo('template_directory') . '/images/missing_image.png" alt="" clasS="article_thumbnail responsive" />';
+				}
+			?>
 			<h1><?php the_title(); ?></h1>
 		</header>
 
