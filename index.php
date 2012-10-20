@@ -20,10 +20,10 @@ get_header(); ?>
 			<?php
 		        global $post;
 		        $featured = get_posts('numberposts=3&category_name=featured'); // featured news
-		        $current_news = get_posts('numberposts=10&category_name=aktuelt,featured'); // all frontpage news
+		        $current_news = get_posts('numberposts=12&category_name=aktuelt,featured'); // all frontpage news
         	?>
 			<h1 class="hidden">Nyheter</h1>
-			<section id="featured_articles" class="sixteen no_margin no_padding columns featured_articles carousel slide">
+			<section id="featured_articles" class="sixteen no_padding columns featured_articles carousel slide">
 				<div class="carousel-inner">
 				<?php
 				// start featured news loop
@@ -52,7 +52,7 @@ get_header(); ?>
 				<a class="carousel-control left" href="#featured_articles" data-slide="prev">&lsaquo;</a>
   				<a class="carousel-control right" href="#featured_articles" data-slide="next">&rsaquo;</a>
 			</section>
-
+			<section class="articles no_padding no_margin">
 			<?php
 				// start news loop
 				foreach($current_news as $post) :
@@ -70,6 +70,7 @@ get_header(); ?>
 				</article>
 
 			<?php endforeach; ?>
+			</section>
 		<?php endif; ?>
 	</section>
 
@@ -83,6 +84,11 @@ get_header(); ?>
 
 
 	</section><!-- #frontpage_articles -->
-
+	<script>
+		// $('.articles').masonry({
+		//   itemSelector: '.column',
+		//   // columnWidth: '960px'
+		// });
+	</script>
 <?php //get_sidebar(); ?>
 <?php get_footer(); ?>

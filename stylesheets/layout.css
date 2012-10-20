@@ -59,6 +59,12 @@
 
 body {
 	background: url('../images/background.jpg') center top no-repeat #000;
+	
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+
 	font-family: Tahoma, Helvetica, Arial, sans-serif;
 }
 
@@ -135,14 +141,13 @@ header#main_header {
 			}
 	#main_header #main_nav {			
 		background: rgb(229,25,15); /* Old browsers */
-		background: -moz-linear-gradient(top,  rgba(229,25,15,1) 0%, rgba(168,18,11,1) 100%, rgba(168,18,11,1) 100%); /* FF3.6+ */
-		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(229,25,15,1)), color-stop(100%,rgba(168,18,11,1)), color-stop(100%,rgba(168,18,11,1))); /* Chrome,Safari4+ */
-		background: -webkit-linear-gradient(top,  rgba(229,25,15,1) 0%,rgba(168,18,11,1) 100%,rgba(168,18,11,1) 100%); /* Chrome10+,Safari5.1+ */
-		background: -o-linear-gradient(top,  rgba(229,25,15,1) 0%,rgba(168,18,11,1) 100%,rgba(168,18,11,1) 100%); /* Opera 11.10+ */
-		background: -ms-linear-gradient(top,  rgba(229,25,15,1) 0%,rgba(168,18,11,1) 100%,rgba(168,18,11,1) 100%); /* IE10+ */
-		background: linear-gradient(to bottom,  rgba(229,25,15,1) 0%,rgba(168,18,11,1) 100%,rgba(168,18,11,1) 100%); /* W3C */
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5190f', endColorstr='#a8120b',GradientType=0 ); /* IE6-9 */
-		
+		background: -moz-linear-gradient(top, rgba(229,25,15,1) 0%, rgba(168,18,11,1) 100%, rgba(168,18,11,1) 100%); /* FF3.6+ */
+		background: -webkit-linear-gradient(top, rgba(229,25,15,1) 0%,rgba(168,18,11,1) 100%, rgba(168,18,11,1) 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top, rgba(229,25,15,1) 0%,rgba(168,18,11,1) 100%, rgba(168,18,11,1) 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top, rgba(229,25,15,1) 0%,rgba(168,18,11,1) 100%, rgba(168,18,11,1) 100%); /* IE10+ */
+		background: linear-gradient(to bottom, rgba(229,25,15,1) 0%,rgba(168,18,11,1) 100%, rgba(168,18,11,1) 100%); /* W3C */
+		/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5190f', endColorstr='#a8120b',GradientType=0 ); /* IE6-9 */
+
 		font-family: "BebasNeueRegular", "Bebas Neue", Tahoma, Helvetica, Arial, sans-serif;
 		font-size: 1.5em;
 		height: 46px;
@@ -340,7 +345,6 @@ footer {
 		
 		min-height: 285px;
 		margin-bottom: 12px;
-
 	}
 	footer h2 {
 		font-size: 14px;
@@ -350,8 +354,6 @@ footer {
 	footer p {
 		color: #fff;
 	}
-	footer nav {
-	}
 
 /* #Page Styles
 ================================================== */
@@ -360,9 +362,62 @@ footer {
 	margin-bottom: 24px;
 }
 
+.share {
+	margin: 12px 0px 24px 0px;
+	padding: 0;
+}
+.single .share h2, .single .follow h2 {
+	position: absolute;
+	right: 50%;
+	margin-right: -10px;
+
+	margin-bottom: 0;
+}
+
+.facebook_share .count, .twitter_share .count {
+	position: absolute;
+	top: 0;
+	right: -8px;
+	/*min-width: 16px;*/
+	margin-top: -10px;
+	padding: 2px 6px;
+	background: red;
+	border-radius: 10px;
+	color: #fff;
+	line-height: 16px;
+	text-indent: 0;
+	text-align: center;
+}
+
+.facebook_share {
+	float:left;
+	height: 48px;
+	width: 48px;
+	background: url(../images/facebook-share.png) no-repeat 20px bottom #35619E;
+	text-indent: -9999px;
+	position: relative;
+}
+	.facebook_share:hover {
+		background-color: #284977;
+	}
+.twitter_share {
+	float: left;
+	margin-left: 12px;
+	height: 48px;
+	width: 48px;
+	background: url(../images/twitter-share.png) no-repeat center center #3C8FC9;
+	text-indent: -9999px;
+	position: relative;
+}
+	.twitter_share:hover {
+		background-color: #26628A;
+	}
+
 /* Frontpage */
 #featured_articles {
 	width: 100%;
+	margin-bottom: 12px;
+	margin-left: 0;
 }
 .featured_articles a.clearfix, .article_header {
 	position: relative;
@@ -383,9 +438,14 @@ footer {
 	width: 100%;
 }
 
-#frontpage_articles .one-third:nth-child(3n) {
+#frontpage_articles .one-third:nth-child(3n+1) {
 	clear: left;
 }
+/*.articles .one-third:nth-child(n+4) {
+	border-top: 2px solid #000;
+	padding-top: 12px;
+	REMOVE ME?
+}*/
 
 /* frontpage */
 
@@ -416,10 +476,9 @@ footer {
  .carousel .item {
     display: none;
     position: relative;
-    .transition(.6s ease-in-out left);
+    -webkit-transition(.6s ease-in-out left);
   }
 
-  // Account for jankitude on images
   .carousel .item > img {
     display: block;
     line-height: 1;
@@ -458,16 +517,14 @@ footer {
     left: 100%;
   }
 
-
-
-// Left/right controls for nav
-// ---------------------------
+/* Left/right controls for nav
+ --------------------------- */
 
 .carousel-control {
   position: absolute;
   z-index: 100;
   top: 40%;
-  left: 15px;
+  left: 0;
   width: 40px;
   height: 40px;
   margin-top: -20px;
@@ -478,42 +535,17 @@ footer {
   text-align: center;
   background: rgba(0,0,0,0.8);
 }
-  // we can't have this transition here
-  // because webkit cancels the carousel
-  // animation if you trip this while
-  // in the middle of another animation
-  // ;_;
-  // .transition(opacity .2s linear);
 
-  // Reposition the right one
-  .carousel-control .right {
+  .carousel-control.right {
     left: auto;
-    right: 15px;
+    right: 0;
   }
 
-  // Hover state
   .carousel-control:hover {
-    color: @white;
+    color: #fff;
     text-decoration: none;
-    .opacity(90);
+    background: rgba(0,0,0,1);
   }
-
-
-// Caption for text below images
-// -----------------------------
-
-.carousel-caption {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 10px 15px 5px;
-  background: rgba(0,0,0,.75);
-}
-.carousel-caption h4,
-.carousel-caption p {
-  color: #fff;
-}
 
 /* #Media Queries
 ================================================== */
@@ -553,7 +585,7 @@ footer {
 				}*/
 			#kvarteret_feeds, #search {
 				top: 0px;
-				postion: relative;
+				position: relative;
 			}
 		footer .standard_wrapper {
 			padding-left: 24px;
@@ -608,7 +640,6 @@ footer {
 		.article_content {
 			padding: 12px !important;
 		}
-
 		.featured_articles h2 {
 			position: static;
 			background: #000;
@@ -634,7 +665,10 @@ footer {
 
 	/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
 	@media only screen and (max-width: 479px) {
-		
+		header#main_header {
+			margin-top: 20px;
+			border-radius: 0;
+		}
 		#kvarteret_feeds, #search {
 			display:block;
 			text-align:center;
