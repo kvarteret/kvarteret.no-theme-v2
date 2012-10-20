@@ -550,7 +550,9 @@ footer {
 .btn_navbar_toggle {
 	display: none;
 }
-
+	.btn_navbar_toggle:hover {
+		cursor: pointer;
+	}
 /* #Media Queries
 ================================================== */
 
@@ -640,7 +642,7 @@ footer {
 			display:block;
 			background: url(../images/mobile-nav-toggle.png) center center no-repeat;
 			text-indent: -9999px;
-			height: 35px;
+			height: 46px;
 		}
 		.article_header h1 {
 			position: static;
@@ -683,9 +685,19 @@ footer {
 			background: rgba(0,0,0,0.8);
 		}
 		.btn_navbar_toggle {
+			position:relative;
 			float:right;
-			margin-right: 12px;
+			padding: 0px 12px;
+			border-left: 1px solid #700D07;
 		}
+			.btn_navbar_toggle:before {
+				display:block;
+				height: 100%;
+				position: absolute;
+				left: 0;
+				content:'';
+				border-left: 1px solid #F24840;
+			}
 		#kvarteret_feeds, #search {
 			dispaly: block;
 			margin: -40px 12px 0px 12px;
