@@ -686,6 +686,10 @@ footer {
 			float:right;
 			margin-right: 12px;
 		}
+		#kvarteret_feeds, #search {
+			dispaly: block;
+			margin: -40px 12px 0px 12px;
+		}
 	}
 
 	/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
@@ -699,6 +703,9 @@ footer {
 			text-align:center;
 			float:none;
 			margin: 12px auto 12px auto;
+		}
+		#search {
+			width: 140px;
 		}
 
 		footer .standard_wrapper {
