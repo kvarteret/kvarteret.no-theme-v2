@@ -80,29 +80,15 @@
 			</form>
 			
 			<nav id="main_nav">
-
-				<?php wp_nav_menu( array( 'container_class' => 'left', 'menu' => 'Nav left' ) ); ?>
-				<?php wp_nav_menu( array( 'container_class' => 'right', 'menu' => 'Nav right' ) ); ?>
-
-				<!--<ul class="left" id="left_header_nav">
-					<li class="current-menu-item"><a href="">Nyheter</a></li>
-					<li><a href="">Program</a></li>
-					<li><a href="">Meny</a></li>
-					<li><a href="">Bilder & Film</a></li>
-				</ul>
-				<ul class="right" id="right_header_nav">
-					<li><a href="">Arrangere</a></li>
-					<li><a href="">Bli Med</a></li>
-					<li id="menu-item-1210" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1210"><a href="http://kvarteret.no/om-kvarteret/">Kvarteret</a>
-						<ul class="sub-menu">
-							<li id="menu-item-1214" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1214"><a href="http://kvarteret.no/om-kvarteret/">Om Kvarteret</a></li>
-							<li id="menu-item-1209" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1209"><a href="http://kvarteret.no/samarbeidspartnere/">Samarbeidspartnere</a></li>
-							<li id="menu-item-1216" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1216"><a href="http://kvarteret.no/offentlig">Offentlige filer</a></li>
-							<li id="menu-item-1947" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1947"><a href="http://kvarteret.no/om-kvarteret/vergeordningen/">Vergeordningen</a></li>
-						</ul>
-					</li>
-					<li><a href="">Kontakt</a></li>
-				</ul> -->
+				<a class="btn_navbar_toggle" data-toggle="collapse" data-target=".nav-collapse">
+					Nav
+				</a>
+				<div class="nav-collapse">
+					<?php wp_nav_menu( array( 'container_class' => 'left', 'menu' => 'Nav left' ) ); ?>
+				</div>
+				<div class="nav-collapse">
+					<?php wp_nav_menu( array( 'container_class' => 'right', 'menu' => 'Nav right' ) ); ?>
+				</div>
 			</nav>
 			
 			<section id="opening_times" class="standard_wrapper">
