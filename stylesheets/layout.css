@@ -712,7 +712,9 @@ footer {
 			background: rgba(0,0,0,0.8);
 		}
 			.nav-collapse .left, .nav-collapse .right, #main_header #main_nav .left ul > li, #main_header #main_nav .right ul > li {
-				float: none !important;
+				float: none;
+				display: block;
+				text-align: left;
 			}
 			.nav-collapse #main_header #main_nav .right ul > li {
 				display: block;
