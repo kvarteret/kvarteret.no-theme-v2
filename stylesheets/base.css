@@ -68,9 +68,9 @@
     font-family: 'BebasNeueRegular';
     src: url('../fonts/bebasneue-webfont.eot');
     src: url('../fonts/bebasneue-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/bebasneue-webfont.svg#BebasNeueRegular') format('svg'),
          url('../fonts/bebasneue-webfont.woff') format('woff'),
-         url('../fonts/bebasneue-webfont.ttf') format('truetype'),
-         url('../fonts/bebasneue-webfont.svg#BebasNeueRegular') format('svg');
+         url('../fonts/bebasneue-webfont.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 
