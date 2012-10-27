@@ -23,7 +23,7 @@
 
     .container                          { position: relative; width: 80%; margin: 0 auto; padding: 0; }
     .container .column,
-    .container .columns                 { float: left; padding: 12px; 
+    .container .columns                 { float: left; padding: 16px; 
 								            -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 								            -moz-box-sizing: border-box;    /* Firefox, other Gecko */
 								            box-sizing: border-box;         /* Opera/IE 8+ */
@@ -31,8 +31,8 @@
     .row                                { margin-bottom: 24px; }
 
     /* Nested Column Classes */
-    .column.alpha, .columns.alpha               { margin-left: 0; }
-    .column.omega, .columns.omega               { margin-right: 0; }
+    .column.alpha, .columns.alpha               { padding: 0; }
+    .column.omega, .columns.omega               { padding: 0; }
 
     /* Base Grid */
     .container .one.column,
@@ -56,30 +56,22 @@
     .container .one-third.column                { width: 33%; }
     .container .two-thirds.column               { width: 66%; }
 
-    .two-thirds.column.alpha, .two-thirds.column.omega {
-        padding:0;
-    }
-
-    .two-thirds.column.alpha.contains_two_columns .one-third:nth-child(even) {
-        margin-right: 0;
-    }
-
     /* Offsets */
     .container .offset-by-one                   { margin-left: 6.25%;  }
-    .container .offset-by-two                   { margin-left: 120px; }
-    .container .offset-by-three                 { margin-left: 180px; }
-    .container .offset-by-four                  { margin-left: 240px; }
-    .container .offset-by-five                  { margin-left: 300px; }
-    .container .offset-by-six                   { margin-left: 360px; }
-    .container .offset-by-seven                 { margin-left: 420px; }
-    .container .offset-by-eight                 { margin-left: 480px; }
-    .container .offset-by-nine                  { margin-left: 540px; }
-    .container .offset-by-ten                   { margin-left: 600px; }
-    .container .offset-by-eleven                { margin-left: 660px; }
-    .container .offset-by-twelve                { margin-left: 720px; }
-    .container .offset-by-thirteen              { margin-left: 780px; }
-    .container .offset-by-fourteen              { margin-left: 840px; }
-    .container .offset-by-fifteen               { margin-left: 900px; }
+    .container .offset-by-two                   { margin-left: 12.5%; }
+    .container .offset-by-three                 { margin-left: 18.75%; }
+    .container .offset-by-four                  { margin-left: 25%; }
+    .container .offset-by-five                  { margin-left: 31.25%; }
+    .container .offset-by-six                   { margin-left: 37.5%; }
+    .container .offset-by-seven                 { margin-left: 43.75%; }
+    .container .offset-by-eight                 { margin-left: 50%;; }
+    .container .offset-by-nine                  { margin-left: 56.25%; }
+    .container .offset-by-ten                   { margin-left: 62.5%; }
+    .container .offset-by-eleven                { margin-left: 68.75%; }
+    .container .offset-by-twelve                { margin-left: 75%; }
+    .container .offset-by-thirteen              { margin-left: 81.25%; }
+    .container .offset-by-fourteen              { margin-left: 87.5%; }
+    .container .offset-by-fifteen               { margin-left: 93.75%; }
 
 
     /*  #Mobile (Portrait)
