@@ -17,45 +17,6 @@
 
 /* #Site Styles
 ================================================== */
-.left {
-	float:left;
-}
-.right {
-	float: right;
-}
-.center {
-	margin: 0 auto;
-}
-.text_center {
-	text-align: center;
-}
-.no_padding {
-	padding: 0 !important;
-}
-.full_width {
-	margin-left: -12px;
-}
-.to_the_top {
-	margin-top: -12px;
-}
-.standard_padding {
-	padding: 12px;
-}
-.no_margin {
-	margin:0 !important;
-}
-.standard_right_margin {
-	margin-right: 12px;
-}
-.no_right_margin {
-	margin-right: 0 !important;
-}
-.no_left_margin {
-	margin-left: 0 !important;
-}
-.hidden {
-	display: none;
-}
 
 body {
 	background: url('../images/background.jpg') center top no-repeat #000;
@@ -100,8 +61,9 @@ header#main_header {
 		border-bottom: 114px solid #fff;
 		position: absolute;
 		top:-114px;
-		left: 5px;
-		content:''
+		left: 50%;
+		margin-left: -475px;
+		content:'';
 		
 	}
 	#kvarteret_feeds {
@@ -153,7 +115,7 @@ header#main_header {
 		height: 46px;
 		
 		position: relative;
-		width: 960px;
+		width: 100%;
 		margin-left: -12px;
 		
 		padding-left: 12px;
@@ -331,7 +293,6 @@ footer {
 }
 	footer .standard_wrapper {
 		padding-top: 24px;
-		padding-left: 48px;
 		background: rgb(64,64,64); /* Old browsers */
 		background: -moz-linear-gradient(top,  rgba(64,64,64,1) 0%, rgba(26,26,26,1) 100%); /* FF3.6+ */
 		background: url(../images/footer-penguins.png) bottom center no-repeat, -webkit-linear-gradient(top,  rgba(64,64,64,1) 0%,rgba(26,26,26,1) 100%); /* Chrome10+,Safari5.1+ */
@@ -441,14 +402,8 @@ footer {
 #frontpage_articles .one-third:nth-child(3n+1) {
 	clear: left;
 }
-/*.articles .one-third:nth-child(n+4) {
-	border-top: 2px solid #000;
-	padding-top: 12px;
-	REMOVE ME?
-}*/
 
 /* frontpage */
-
 .photostream {
 	height: 500px;
 	background: #000;
@@ -553,6 +508,7 @@ footer {
 	.btn_navbar_toggle:hover {
 		cursor: pointer;
 	}
+
 /* #Media Queries
 ================================================== */
 
@@ -577,18 +533,11 @@ footer {
 				border-right: 379px solid transparent;
 				border-bottom: 89px solid #fff;
 				top: -89px;
+				margin-left: -379px;
 			}
 			#logo {
 				top: -75px;
 			}
-				
-			#main_header #main_nav {
-				width: 768px;
-				margin-top: 60px;
-			}
-				/*header nav:before, header nav:after {
-					border:0;
-				}*/
 			#kvarteret_feeds, #search {
 				top: 0px;
 				position: relative;

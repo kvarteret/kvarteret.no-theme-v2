@@ -29,7 +29,7 @@
 	<!-- CSS
   ================================================== -->
 	<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/stylesheets/base.css">
-	<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/stylesheets/skeleton.css">
+	<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/stylesheets/thune.css">
 	<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/stylesheets/layout.css">
 
 	<!--[if lt IE 9]>

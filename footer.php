@@ -14,7 +14,7 @@
 		<footer>
 			<div class="standard_wrapper clearfix">
 				<?php dynamic_sidebar('the-footer-nav'); ?>
-				<div class="three columns">
+				<div class="three columns offset-by-one">
 					<h2>Det Akademiske Kvarter</h2>
 					<ul>
 						<li><a href="">Historie</a></li>
