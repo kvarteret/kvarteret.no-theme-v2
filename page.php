@@ -14,10 +14,17 @@
 
 get_header(); ?>
 	<article id="primary" class="standard_wrapper content_container clearfix standard_padding">
+			
+		<div class="two-thirds column">
 			<?php while ( have_posts() ) : the_post(); ?>
 				<?php get_template_part( 'content', 'page' ); ?>
 				<?php comments_template( '', true ); ?>
 			<?php endwhile; // end of the loop. ?>
+		</div>
+
+		<div class="one-third column">
+			<?php get_sidebar(); ?>
+		</div>
+
 	</article>
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

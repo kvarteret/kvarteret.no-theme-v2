@@ -512,6 +512,26 @@ footer {
 /* #Media Queries
 ================================================== */
 
+	/* #Desktop (>1300px) */
+    @media only screen and (min-width: 1300px) {
+    	.carousel-inner { height: 579px; } /* height fix for Chrome (at resize) and Firefox */
+    	#main_header:before {
+			border-left: 555px solid transparent;
+			border-right: 555px solid transparent;
+			margin-left: -555px;
+		}
+    }
+
+    /* Laptop (960-1299) */
+	@media only screen and (min-width: 960px) and (max-width: 1299px) {
+		.carousel-inner { height: 506px; } /* height fix for Chrome (at resize) and Firefox */
+		#main_header:before {
+			border-left: 485px solid transparent;
+			border-right: 485px solid transparent;
+			margin-left: -485px;
+		}
+
+	}
 	/* Smaller than standard 960 (devices and browsers) */
 	@media only screen and (max-width: 959px) {
 		#logo_dark {
@@ -524,6 +544,7 @@ footer {
 
 	/* Tablet Portrait size to standard 960 (devices and browsers) */
 	@media only screen and (min-width: 768px) and (max-width: 959px) {
+		.carousel-inner { height: 397px; } /* height fix for Chrome (at resize) and Firefox */
 		#main_header {
 			margin-top: 113px;
 			/*height: 100px;*/

@@ -73,10 +73,9 @@
     .container .offset-by-fourteen              { margin-left: 87.5%; }
     .container .offset-by-fifteen               { margin-left: 93.75%; }
 
-
 /* #Desktop (>1300px)
 ================================================== */
-    @media only screen and (min-width: 1300px) {
+    @media only screen and (min-width: 1300px) and (max-width: 2599px) {
         .container { width: 1120px; }
     } 
 
