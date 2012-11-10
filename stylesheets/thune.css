@@ -1,20 +1,39 @@
 /*
-* Thune Grid v1.0 based on Skeleton V1.2
-* Skeleton Copyright 2011, Dave Gamache
+* Thune Grid v0.5 based on Skeleton V1.2
 * Thune Grid Copyright 2012 Torstein Thune
 * Free to use under the MIT license.
 * http://www.opensource.org/licenses/mit-license.php
 * 27. oct. 2012
 */
 
+/* Compatibility
+==================================================
+    
+    The grid is compatible with IE9+, Chrome, Firefox and Opera.
+    IE8 renders the base version, but not the responsive ones.
+
+*/
+
+/* Credits
+==================================================
+    
+    Thune Grid is based on Skeleton by Dave Gamache.
+    Skeleton Copyright 2011, Dave Gamache
+
+*/
 
 /* Table of Contents
 ==================================================
+    
     #Base Grid
+    #Desktop (>1300px)
+    #Laptop (<1300px)
     #Tablet (Portrait)
     #Mobile (Portrait)
     #Mobile (Landscape)
-    #Clearing */
+    #Clearing 
+
+*/
 
 
 

@@ -546,8 +546,7 @@ footer {
 	@media only screen and (min-width: 768px) and (max-width: 959px) {
 		.carousel-inner { height: 397px; } /* height fix for Chrome (at resize) and Firefox */
 		#main_header {
-			margin-top: 113px;
-			/*height: 100px;*/
+			margin-top: 50px;
 		}
 			#main_header:before {
 				border-left: 379px solid transparent;
@@ -557,14 +556,16 @@ footer {
 				margin-left: -379px;
 			}
 			#logo {
-				top: -75px;
+				top: -65px;
+			}
+			#main_nav {
+				margin-top: 70px;
 			}
 			#kvarteret_feeds, #search {
-				top: 0px;
-				position: relative;
+				top: 20px;
 			}
 		footer .standard_wrapper {
-			padding-left: 24px;
+			padding-left: 0px;
 		}
 	}
 
@@ -669,7 +670,6 @@ footer {
 				border-left: 1px solid #F24840;
 			}
 		#kvarteret_feeds, #search {
-			dispaly: block;
 			margin: -40px 12px 0px 12px;
 		}
 	}
