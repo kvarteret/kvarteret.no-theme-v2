@@ -29,6 +29,10 @@ body {
 	font-family: Tahoma, Helvetica, Arial, sans-serif;
 }
 
+.clear_both {
+	clear:both;
+}
+
 .message {
 	background: #FFF464;
 	padding: 12px;
@@ -38,7 +42,7 @@ body {
 	background: #fff;
 }
 
-img.responsive, article_content img, .wp-caption img {
+.responsive, article_content img, .wp-caption img {
 	width: 100% !important; /*important because wordpress inserts width and height as html*/
 	height: auto !important;
 }
@@ -46,7 +50,7 @@ img.responsive, article_content img, .wp-caption img {
 		max-width: 100% !important;
 	}
 
-header#main_header {
+#main_header {
 	margin-top: 150px;
 	position: relative;
 	background: #fff;
@@ -413,6 +417,48 @@ footer {
 		color: #fff;
 	}
 
+/* event */
+.event_nav {
+	background: #000;
+	border-radius: 5px;
+	padding: 8px;
+	margin-bottom: 24px;
+}
+	.event_nav ul {
+		display: inline-block;
+		margin:0;
+	}
+	.event_nav li {
+		float:left;
+		padding: 5px 8px;
+		margin: 0 8px 0 0;
+		border-radius: 3px;
+	}
+		.event_nav li a {
+			color: #fff;
+		}
+			.event_nav li.active {
+				background: #fff;
+			}
+				.event_nav li.active a {
+					color: #000;
+				}
+	.event_nav form {
+		margin:0;
+	}
+		.event_nav input {
+			float:left;
+			margin:0;
+			width: 110px;
+		}
+		
+		.event_nav button {
+			margin:0;
+			text-indent: -9999px;
+			background: url(../images/search-white.png) center center no-repeat;
+			border: none;
+		}
+
 /*	Bootstrap
 	=============================================  */
 .carousel {
@@ -431,7 +477,7 @@ footer {
  .carousel .item {
     display: none;
     position: relative;
-    -webkit-transition(.6s ease-in-out left);
+    -webkit-transition(0.6s ease-in-out left);
   }
 
   .carousel .item > img {
