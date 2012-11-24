@@ -23,7 +23,7 @@ get_header(); ?>
 		        $current_news = get_posts('numberposts=12&category_name=aktuelt,featured'); // all frontpage news
         	?>
 			<h1 class="hidden">Nyheter</h1>
-			<section id="featured_articles" class="sixteen no_padding columns featured_articles carousel slide">
+			<section id="featured_articles" class="sixteen no-padding columns featured_articles carousel slide">
 				<div class="carousel-inner">
 				<?php
 				// start featured news loop

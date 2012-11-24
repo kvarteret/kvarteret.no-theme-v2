@@ -42,7 +42,7 @@ body {
 	background: #fff;
 }
 
-.responsive, article_content img, .wp-caption img {
+.responsive, .article_content img, .wp-caption img {
 	width: 100% !important; /*important because wordpress inserts width and height as html*/
 	height: auto !important;
 }

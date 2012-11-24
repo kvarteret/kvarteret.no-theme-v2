@@ -1,10 +1,8 @@
-/*
-* Thune Grid v0.5 based on Skeleton V1.2
-* Thune Grid Copyright 2012 Torstein Thune
-* Free to use under the MIT license.
-* http://www.opensource.org/licenses/mit-license.php
-* 27. oct. 2012
-*/
+// Lattice v0.5 based on Skeleton v1.2
+// Lattice Copyright 2012 Torstein Thune
+// Free to use under the MIT license.
+// http://www.opensource.org/licenses/mit-license.php
+// 27. oct. 2012
 
 /* Compatibility
 ==================================================
@@ -17,80 +15,120 @@
 /* Credits
 ==================================================
     
-    Thune Grid is based on Skeleton by Dave Gamache.
+    Lattice Grid is based on Skeleton by Dave Gamache.
     Skeleton Copyright 2011, Dave Gamache
 
 */
 
 /* Table of Contents
 ==================================================
-    
+
+//  #Mixins
+//  #Dictionary
+//  #Configurations
     #Base Grid
     #Desktop (>1300px)
     #Laptop (<1300px)
     #Tablet (Portrait)
     #Mobile (Portrait)
     #Mobile (Landscape)
-    #Clearing 
 
 */
 
+// #Mixins
+//==================================================
 
+@mixin vendor-prefix($name, $argument) {
+  -webkit-#{$name}: $argument;
+  -ms-#{$name}: $argument;
+  -moz-#{$name}: $argument;
+  -o-#{$name}: $argument;
+  #{$name}: $argument;
+}
+
+// #Dictionary to make beautiful column class names
+//==================================================
+$numbers: one,two,three,four,five,six,seven,eight,nine,ten,eleven,twelve,thirteen,forteen,fifteen,sixteen,seventeen,eighteen,nineteen,twenty,twentyone,twentytwo,twentythree,twentyfour,twentyfive,twentysix,twentyseven,twentyeight,twentynine,thirty,thirtyone,thirtytwo,thitythree,thirtyfour,thirtyfive,thirtysix,thirtyseven,thirtyeight,thirtynine,forty,fortyoe,fortytwo,fortythree,fortyfour,fortyfive,fortysix,fortyseven,fortyeight,fortynine,fifty;
+
+// #Configurations
+//==================================================
+
+$grid-width: 100%;          // default: 100% {%, px, em}
+
+$number-of-columns: 16;     // default: 16
+
+$padding: 25px;             // default: 16px (so gutter between content is 16px*2)
+
+$grid-alignment: 'center';   // default: center {none, left, center, right}
+
+$column-width: $grid-width/$number-of-columns;
+
+// cutoff points each will have specific styling, place in rising order
+$target-mobile: true;
+$mobile-cutoffs: 360px,480px,800px;
+
+$target-tablet: true;
+$tablet-cutoffs: 920px,1024px,1280px;
+
+$target-desktop: true;
+$desktop-cutoffs: 1024px,1280px,1366px,1920px;
+
+$target-retina: true;
 
 /* #Base Grid
 ================================================== */
 
-    .container                          { position: relative; width: 80%; margin: 0 auto; padding: 0; }
-    .container .column,
-    .container .columns                 { float: left; padding: 16px; 
-								            -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-								            -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-								            box-sizing: border-box;         /* Opera/IE 8+ */
-								        }
+.container { 
+    position:relative;
+    width:80%;
+    padding:0; 
+    @if $grid-alignment == 'center' { margin: 0 auto; }
+    @if $grid-alignment == 'right' { float: right; }
+    @if $grid-alignment == 'left' { float: left; }
+    }
+.container .column,
+.container .columns {
+    float:left;
+    padding: $padding;
+    @include vendor-prefix(box-sizing, border-box);
+}
+
+/* Base Grid */
+@for $i from 1 to $number-of-columns+1 {
+    @if $number-of-columns <= length($numbers) {
+        .#{nth($numbers,$i)}.columns, .#{nth($numbers,$i)}.column { width: $column-width * $i; }
+    }
+    @if $number-of-columns > length($numbers) { 
+        .#{c$i}.columns, .#{c$i}.column { width: $column-width * $i; }
+    } 
+}
+
+.one-third.column { width: $grid-width/3; }
+.two-thirds.column { width: ($grid-width/3)*2; }
+
+/* Offsets */
+@for $i from 1 to $number-of-columns+1 {
+    @if $number-of-columns <= length($numbers) {
+        .offset-by-#{nth($numbers,$i)}     { margin-left: $column-width * $i; }
+        .offset-right-by-#{nth($numbers,$i)}     { margin-right: $column-width * $i; }
+        .offset-top-by-#{nth($numbers,$i)} { margin-top: $padding * $i; }
+        .offset-bottom-by-#{nth($numbers,$i)} { margin-bottom: $padding * $i; }
+    }
+    @if $number-of-columns > length($numbers) { 
+        .offset-by-#{$i}     { margin-left: $column-width * $i; }
+    } 
+    
+}
+
+/* #Base Grid
+================================================== */
+
     .row                                { margin-bottom: 24px; }
 
     /* Nested Column Classes */
     .column.alpha, .columns.alpha               { padding: 0; }
     .column.omega, .columns.omega               { padding: 0; }
 
-    /* Base Grid */
-    .container .one.column,
-    .container .one.columns                     { width: 6.25%;  }
-    .container .two.columns                     { width: 12.5%; }
-    .container .three.columns                   { width: 18.75%; }
-    .container .four.columns                    { width: 25%; }
-    .container .five.columns                    { width: 31.25%; }
-    .container .six.columns                     { width: 37.5%; }
-    .container .seven.columns                   { width: 43.75%; }
-    .container .eight.columns                   { width: 50%; }
-    .container .nine.columns                    { width: 56.25%; }
-    .container .ten.columns                     { width: 62.5%; }
-    .container .eleven.columns                  { width: 68.75%; }
-    .container .twelve.columns                  { width: 75%; }
-    .container .thirteen.columns                { width: 81.25%; }
-    .container .fourteen.columns                { width: 87.5%; }
-    .container .fifteen.columns                 { width: 93.75%; }
-    .container .sixteen.columns                 { width: 100%; }
-
-    .container .one-third.column                { width: 33.3%; }
-    .container .two-thirds.column               { width: 66.6%; }
-
-    /* Offsets */
-    .container .offset-by-one                   { margin-left: 6.25%;  }
-    .container .offset-by-two                   { margin-left: 12.5%; }
-    .container .offset-by-three                 { margin-left: 18.75%; }
-    .container .offset-by-four                  { margin-left: 25%; }
-    .container .offset-by-five                  { margin-left: 31.25%; }
-    .container .offset-by-six                   { margin-left: 37.5%; }
-    .container .offset-by-seven                 { margin-left: 43.75%; }
-    .container .offset-by-eight                 { margin-left: 50%;; }
-    .container .offset-by-nine                  { margin-left: 56.25%; }
-    .container .offset-by-ten                   { margin-left: 62.5%; }
-    .container .offset-by-eleven                { margin-left: 68.75%; }
-    .container .offset-by-twelve                { margin-left: 75%; }
-    .container .offset-by-thirteen              { margin-left: 81.25%; }
-    .container .offset-by-fourteen              { margin-left: 87.5%; }
-    .container .offset-by-fifteen               { margin-left: 93.75%; }
 
 /* #Desktop (>1300px)
 ================================================== */
@@ -188,40 +226,4 @@
         .container .offset-by-fourteen,
         .container .offset-by-fifteen { padding-left: 0; }
 
-    }
-
-
-/* #Clearing
-================================================== */
-
-    /* Self Clearing Goodness */
-    .container:after { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; }
-
-    /* Use clearfix class on parent to clear nested columns,
-    or wrap each row of columns in a <div class="row"> */
-    .clearfix:before,
-    .clearfix:after,
-    .row:before,
-    .row:after {
-      content: '\0020';
-      display: block;
-      overflow: hidden;
-      visibility: hidden;
-      width: 0;
-      height: 0; }
-    .row:after,
-    .clearfix:after {
-      clear: both; }
-    .row,
-    .clearfix {
-      zoom: 1; }
-
-    /* You can also use a <br class="clear" /> to clear columns */
-    .clear {
-      clear: both;
-      display: block;
-      overflow: hidden;
-      visibility: hidden;
-      width: 0;
-      height: 0;
     }
