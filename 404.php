@@ -8,9 +8,9 @@
  */
 
 get_header(); ?>
-	<section class="standard_wrapper content_container standard_padding">
+	<section class="standard_wrapper content_container standard-padding">
 		<article id="post-0" class="post error404 no-results not-found">
-			<iframe class="full_width to_the_top" width="960" height="540" src="http://www.youtube.com/embed/GxnC4pZnG9o" frameborder="0" allowfullscreen></iframe>
+			<iframe class="full_width to_the_top" width="100%" height="540" src="http://www.youtube.com/embed/GxnC4pZnG9o" frameborder="0" allowfullscreen></iframe>
 			<header class="entry-header">
 				<h1 class="entry-title"><?php _e( 'This is somewhat embarrassing, isn&rsquo;t it?', 'twentytwelve' ); ?></h1>
 			</header>

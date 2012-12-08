@@ -50,9 +50,8 @@
 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/bootstrap.js"></script>
-	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery.masonry.min.js"></script>
-
-	<?php //wp_head(); ?>
+	
+	<?php wp_head(); ?>
 
 
 </head>

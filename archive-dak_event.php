@@ -10,7 +10,7 @@
  */
 
 get_header(); ?>
-	<section id="primary" class="standard_wrapper content_container clearfix standard_padding">
+	<section id="primary" class="standard_wrapper content_container clearfix standard-padding event-list">
 		<a class="big button right" href="#">Arrangere</a>
 		<h1>På Kvarteret</h1>
 	
@@ -29,29 +29,34 @@ get_header(); ?>
 			</form>
 		</nav>
 		<?php 
-			$event_query = new WP_Query('post_type=dak_event'); 
-			$current_start_date = "";
-			$current_start_time = "";
+			$event_query = new WP_Query('post_type=dak_event');
+			$current_date = date(Y-m-d);
+			$loop_active_start_date = "";
+			$loop_active_start_time = "";
 
 			// The Loop
 			while ( $event_query->have_posts() ) : $event_query->the_post();
 				$event_meta = get_post_meta(get_the_ID());
+				$css_offset_by = "";
 
 				// echo date headline
-				if($current_start_date != $event_meta[dak_event_start_date][0]) {
-					$current_start_date = $event_meta[dak_event_start_date][0];
-					echo '<div class="date clear_both">'.$event_meta[dak_event_start_date][0].'</div>';
+				if($loop_active_start_date != $event_meta[dak_event_start_date][0]) {
+					$loop_active_start_date = $event_meta[dak_event_start_date][0];
+					echo '<div class="date clear_both offset-top-by-one">'.date('l, j. F Y', strtotime($event_meta[dak_event_start_date][0])).'</div>';
 				}
 
-				if($current_start_time != $event_meta[dak_event_start_time][0]) {
-					$current_start_time = $event_meta[dak_event_start_time][0];
-					echo '<div class="event time three columns">'.$event_meta[dak_event_start_time][0].'</div>';
+				if($loop_active_start_time != $event_meta[dak_event_start_time][0]) {
+					$loop_active_start_time = $event_meta[dak_event_start_time][0];
+					$css_offset_by = "";
+					echo '<div class="event time two columns text-right">'.$event_meta[dak_event_start_time][0].'</div>';
+				} else {
+					$css_offset_by = "offset-by-two";
 				}
 
 		?>
-				<div class="event thirteen columns offset-by-three">
-					<h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
-					<div class="time">(<?=$event_meta[dak_event_start_time][0];?> - <?=$event_meta[dak_event_end_time][0];?>)</div>
+				<div class="event content fourteen columns inline-block <?=$css_offset_by; ?>">
+					<h2 class="inline-block"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a> <small class="time">(<?=$event_meta[dak_event_start_time][0];?> - <?=$event_meta[dak_event_end_time][0];?>)</small></h2>
+					
 					<div class="meta">
 						CC: <?php if($event_meta[dak_event_covercharge][0]) { 
 								echo $event_meta[dak_event_covercharge][0]; 

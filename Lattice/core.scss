@@ -82,14 +82,12 @@ or wrap each row of columns in a <div class="row"> */
 ================================================== */
 
   .left { float:left; }
-  .center { margin: 0 auto; }
-  .right { float: right; }
+  .center { margin: 0 auto !important; float: none !important; }
+  .right { float: right !important; }
 
   .text-left { text-align: left; }
   .text-center { text-align: center; }
   .text-right { text-align:right; }
-  
-  .standard-padding { padding: 12px; }
 
   .no-padding { padding: 0 !important; }
   .no-top-padding { padding-top: 0 !important; }
@@ -97,15 +95,35 @@ or wrap each row of columns in a <div class="row"> */
   .no-bottom-padding { padding-bottom: 0 !important; }
   .no-left-padding { padding-left: 0 !important; }
 
+  .standard-padding { padding: 25px; }
+  .standard-top-padding { padding-top: 25px; }
+  .standard-right-padding { padding-right: 25px; }
+  .standard-bottom-padding { padding-bottom: 25px; }
+  .standard-left-padding { padding-left: 25px; }
+
   .no-margin { margin:0 !important; }
   .no-top-margin { margin-top: 0 !important; }
   .no-right-margin { margin-right: 0 !important; }
   .no-bottom-margin { margin-bottom: 0 !important; }
   .no-left-margin { margin-left: 0 !important; }
 
-  .standard-margin { margin-right: 12px; }
+  .standard-margin { margin: 25px; }
+  .standard-top-margin { margin-top: 25px; }
+  .standard-right-margin { margin-right: 25px; }
+  .standard-bottom-margin { margin-bottom: 25px; }
+  .standard-left-margin { margin-left: 25px; }
   
   .hidden { display: none; }
   .block { display: block; }
   .inline { display: inline; }
-  .inline-block { display: inline-block; }
+  .inline-block { display: inline-block !important; float: none !important; }
+
+  .clear {
+    clear:both;
+  }
+  .clear-left {
+    clear: left;
+  }
+  .clear-right {
+    clear: right;
+  }
