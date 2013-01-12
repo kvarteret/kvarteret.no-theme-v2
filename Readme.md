@@ -46,7 +46,8 @@ To install [Wordpress](http://wordpress.org), go to their website and download t
 Start Apache and MySQL via the MAMP GUI interface and go to [http://localhost/wordpress](http://localhost/wordpress) to start the installation of Wordpress.
 
 ## Installing the theme
-Download/Git clone this repository into */www/kvarteret.no/wp-content/themes. Go to http://localhost/kvarteret.no/wp-admin, click appearance and choose the theme.
+Download/Git clone this repository into */www/kvarteret.no/wp-content/themes. 
+Go to http://localhost/kvarteret.no/wp-admin, click appearance and choose the theme.
 
 ## Dependencies/Third party libraries
 The Wordpress theme is dependent on a few external libraries.
