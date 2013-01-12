@@ -65,7 +65,7 @@ Can be found on [github.com/kvarteret/dak-smugmug-wordpress-plugin-v2](https://g
 The CSS is written using SASS and can be compiled to any style or minified.
 
 #### Some general conventions
-Sub elements are indented
+We use tabs and not spaces for indentation.
 e.g 
 ```` css
 ul {
@@ -75,3 +75,4 @@ ul {
     styles
   }
 ````
+Elements are placed roughly chronologically as they are displayed/coded in the HTML.
