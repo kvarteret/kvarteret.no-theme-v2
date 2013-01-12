@@ -1,4 +1,4 @@
-#Kvarteret.no Wordpress Theme v2
+# Kvarteret.no Wordpress Theme v2
 This repository is the Kvarteret Wordpress theme. It is somewhat based on the 2013 Wordpress theme, but with major modifications.
 
 ## Setup
@@ -45,7 +45,8 @@ You may use the default ports and password (MySQL is only accessible on localhos
 To install [Wordpress](http://wordpress.org), go to their website and download their newest version. Place the wordpress folder in /Applications/MAMP/htdocs.
 Start Apache and MySQL via the MAMP GUI interface and go to [http://localhost/wordpress](http://localhost/wordpress) to start the installation of Wordpress.
 
-
+## Installing the theme
+Download/Git clone this repository into */www/kvarteret.no/wp-content/themes. Go to http://localhost/kvarteret.no/wp-admin, click appearance and choose the theme.
 
 ## Dependencies/Third party libraries
 The Wordpress theme is dependent on a few external libraries.
@@ -53,6 +54,10 @@ The Wordpress theme is dependent on a few external libraries.
 ### CSS: SASS and Lattice
 The CSS is developed using SASS (a CSS preprocessor) which can be set up using the instructions found on http://sass-lang.com/
 The grid used is based on the Lattice CSS framework, which can be found on [github.com/Torthu/Lattice](https://github.com/Torthu/Lattice)
+
+### Javascript: jQuery and parts of Bootstrap
+We use [jQuery](http://jquery.com) for DOM traversing, AJAX, etc.
+The [Twitter Bootstrap slider plugin](http://twitter.github.com/bootstrap/javascript.html#carousel) for the frontpage slider.
 
 ### Plugins
 The event page and the pictures page is dependant on homebrew Wordpress plugins.
@@ -62,7 +67,6 @@ Can be found on [github.com/kvarteret/dak-event-wordpress-plugin-v2](https://git
 
 #### SmugMug/Picture plugin 
 Can be found on [github.com/kvarteret/dak-smugmug-wordpress-plugin-v2](https://github.com/kvarteret/dak-smugmug-wordpress-plugin-v2)
-
 
 ## Code style
 
@@ -81,3 +85,16 @@ ul {
   }
 ````
 Elements are placed roughly chronologically as they are displayed/coded in the HTML.
+
+The CSS follows the OOCSS convention. Basically any reusable CSS should be extracted to its own class in order to reuse it i other elements.
+IDs should in general only be used in order to style truly unique elements, so use classes.
+
+### Javascript
+We use plugins from Twitter Bootstrap, namely the jQuery slider.
+
+### PHP
+PHP: do whatever you want as long as it is readable.
+
+### HTML
+We use the HTML 5 doctype.
+In general elements should be as semantically correct as possible, this means that you should use nav, section, article, header, footer, etc. where applicable and limit your use of divs and spans.
