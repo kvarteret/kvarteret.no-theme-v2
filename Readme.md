@@ -36,6 +36,8 @@ In order to install Wordpress you will have to download the latest version of [W
 
 Now you can start wampserver and navigate to [http://localhost/kvarteret.no](http://localhost/kvarteret.no) in your prefered webbrowser in order to start the Wordpress installer.
 
+You might have to chmod the Wordpress files if you want Wordpress to be able to update itself. You can do this with the "chmod 0777" command.
+
 ### Mac/OS X
 TODO
 
@@ -58,4 +60,18 @@ Can be found on [github.com/kvarteret/dak-smugmug-wordpress-plugin-v2](https://g
 
 
 ## Code style
-Utter and total shait.
+
+### CSS
+The CSS is written using SASS and can be compiled to any style or minified.
+
+#### Some general conventions
+Sub elements are indented
+e.g 
+```` css
+ul {
+  styles
+}
+  li {
+    styles
+  }
+````
