@@ -39,7 +39,12 @@ Now you can start wampserver and navigate to [http://localhost/kvarteret.no](htt
 You might have to chmod the Wordpress files if you want Wordpress to be able to update itself. You can do this with the "chmod 0777" command.
 
 ### Mac/OS X
-TODO
+[MAMP](http://www.mamp.info/) (Mac Apache MySQL PHP) is a webstack for Mac OS X, and the easiest way to set up a webstack on OS X.
+You may use the default ports and password (MySQL is only accessible on localhost).
+
+To install [Wordpress](http://wordpress.org), go to their website and download their newest version. Place the wordpress folder in /Applications/MAMP/htdocs.
+Start Apache and MySQL via the MAMP GUI interface and go to [http://localhost/wordpress](http://localhost/wordpress) to start the installation of Wordpress.
+
 
 
 ## Dependencies/Third party libraries
