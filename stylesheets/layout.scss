@@ -101,7 +101,7 @@ a {
 		}
 		#search button {
 			text-indent: -9999px;
-			background: url('../images/search.png') center center no-repeat;
+			background: url('images/search.png') center center no-repeat;
 			width: 25px;
 			margin-top:-1px;
 
@@ -303,11 +303,11 @@ footer {
 	footer .standard_wrapper {
 		padding-top: 24px;
 		background: rgb(64,64,64); /* Old browsers */
-		background: -moz-linear-gradient(top,  rgba(64,64,64,1) 0%, rgba(26,26,26,1) 100%); /* FF3.6+ */
-		background: url(../images/footer-penguins.png) bottom center no-repeat, -webkit-linear-gradient(top,  rgba(64,64,64,1) 0%,rgba(26,26,26,1) 100%); /* Chrome10+,Safari5.1+ */
-		background: -o-linear-gradient(top,  rgba(64,64,64,1) 0%,rgba(26,26,26,1) 100%); /* Opera 11.10+ */
-		background: -ms-linear-gradient(top,  rgba(64,64,64,1) 0%,rgba(26,26,26,1) 100%); /* IE10+ */
-		background: linear-gradient(to bottom,  rgba(64,64,64,1) 0%,rgba(26,26,26,1) 100%); /* W3C */
+		background: url(images/footer-penguins.png) bottom center no-repeat, -moz-linear-gradient(top,  rgba(64,64,64,1) 0%, rgba(26,26,26,1) 100%); /* FF3.6+ */
+		background: url(images/footer-penguins.png) bottom center no-repeat, -webkit-linear-gradient(top,  rgba(64,64,64,1) 0%,rgba(26,26,26,1) 100%); /* Chrome10+,Safari5.1+ */
+		background: url(images/footer-penguins.png) bottom center no-repeat, -o-linear-gradient(top,  rgba(64,64,64,1) 0%,rgba(26,26,26,1) 100%); /* Opera 11.10+ */
+		background: url(images/footer-penguins.png) bottom center no-repeat, -ms-linear-gradient(top,  rgba(64,64,64,1) 0%,rgba(26,26,26,1) 100%); /* IE10+ */
+		background: url(images/footer-penguins.png) bottom center no-repeat, linear-gradient(to bottom,  rgba(64,64,64,1) 0%,rgba(26,26,26,1) 100%); /* W3C */
 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#404040', endColorstr='#1a1a1a',GradientType=0 ); /* IE6-9 */
 		
 		border-radius: 5px;
@@ -465,7 +465,7 @@ footer {
 		.event_nav button {
 			margin:0;
 			text-indent: -9999px;
-			background: url(../images/search-white.png) center center no-repeat;
+			background: url(images/search-white.png) center center no-repeat;
 			border: none;
 		}
 .event-list .event.content {
