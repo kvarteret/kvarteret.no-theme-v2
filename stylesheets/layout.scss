@@ -34,15 +34,6 @@ a {
 	color: #26A9FF;
 }
 
-.clear_both {
-	clear:both;
-}
-
-.message {
-	background: #FFF464;
-	padding: 12px;
-	margin: 12px;
-}
 .standard_wrapper {
 	background: #fff;
 }
@@ -55,6 +46,7 @@ a {
 		max-width: 100% !important;
 	}
 
+/* Header */
 #main_header {
 	margin-top: 150px;
 	position: relative;
@@ -110,6 +102,8 @@ a {
 			#search button:active {
 				margin-top:0;
 			}
+
+	/* Navigation */
 	#main_header #main_nav {			
 		background: rgb(229,25,15); /* Old browsers */
 		background: -moz-linear-gradient(top, rgba(229,25,15,1) 0%, rgba(168,18,11,1) 100%, rgba(168,18,11,1) 100%); /* FF3.6+ */
@@ -216,14 +210,20 @@ a {
 		margin-left: -60px;
 		top: -86px;
 	}
+
+	/* used in responsive versions < desktop */
 	#logo_dark {
 		display: none;
 	}
+
+	/* unused atm */
 	#language_selection {
 		position:absolute;
 		top: 0;
 		right: 0;
 	}
+
+/* opening times below header */
 #opening_times {
 	text-align:center;
 	padding: 12px;
@@ -242,6 +242,7 @@ a {
 			margin-bottom:0;
 		}
 
+/* events below header */
 header.event {
 	background: #000;
 	color: #fff;
@@ -274,11 +275,13 @@ header.event {
 			margin:0;
 			padding: 0px 6px;
 		}
+
 	
 .content_container {
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
 	margin-bottom: 12px;
+	background: #fff;
 }
 	.sidebar {
 		float: right;
