@@ -29,8 +29,13 @@ get_header(); ?>
 			</form>
 		</nav>
 		<?php 
-			$event_query = new WP_Query('post_type=dak_event');
-			$current_date = date(Y-m-d);
+			$event_query = new WP_Query(
+				array(
+					'post_type' => 'dak_event',
+					'post_status' => 'any', // temporary, change to published
+				)
+			);
+			$current_date = date('Y-m-d');
 			$loop_active_start_date = "";
 			$loop_active_start_time = "";
 
@@ -40,31 +45,31 @@ get_header(); ?>
 				$css_offset_by = "";
 
 				// echo date headline
-				if($loop_active_start_date != $event_meta[dak_event_start_date][0]) {
-					$loop_active_start_date = $event_meta[dak_event_start_date][0];
-					echo '<div class="date clear_both offset-top-by-one">'.date('l, j. F Y', strtotime($event_meta[dak_event_start_date][0])).'</div>';
+				if($loop_active_start_date != $event_meta['dak_event_start_date'][0]) {
+					$loop_active_start_date = $event_meta['dak_event_start_date'][0];
+					echo '<div class="date clear_both offset-top-by-one">'.date('l, j. F Y', strtotime($event_meta['dak_event_start_date'][0])).'</div>';
 				}
 
-				if($loop_active_start_time != $event_meta[dak_event_start_time][0]) {
-					$loop_active_start_time = $event_meta[dak_event_start_time][0];
+				if($loop_active_start_time != $event_meta['dak_event_start_time'][0]) {
+					$loop_active_start_time = $event_meta['dak_event_start_time'][0];
 					$css_offset_by = "";
-					echo '<div class="event time two columns text-right">'.$event_meta[dak_event_start_time][0].'</div>';
+					echo '<div class="event time two columns text-right">'.$event_meta['dak_event_start_time'][0].'</div>';
 				} else {
 					$css_offset_by = "offset-by-two";
 				}
 
 		?>
 				<div class="event content fourteen columns inline-block <?=$css_offset_by; ?>">
-					<h2 class="inline-block"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a> <small class="time">(<?=$event_meta[dak_event_start_time][0];?> - <?=$event_meta[dak_event_end_time][0];?>)</small></h2>
+					<h2 class="inline-block"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a> <small class="time">(<?=$event_meta['dak_event_start_time'][0];?> - <?=$event_meta['dak_event_end_time'][0];?>)</small></h2>
 					
 					<div class="meta">
-						CC: <?php if($event_meta[dak_event_covercharge][0]) { 
-								echo $event_meta[dak_event_covercharge][0]; 
+						CC: <?php if($event_meta['dak_event_covercharge'][0]) { 
+								echo $event_meta['dak_event_covercharge'][0]; 
 							} else { 
 								echo 'Udefinert'; 
 							} ?>
-						• Aldersgrense: <?php if($event_meta[dak_event_age_limit][0]) { 
-								echo $event_meta[dak_event_age_limit][0]; 
+						• Aldersgrense: <?php if($event_meta['dak_event_age_limit'][0]) { 
+								echo $event_meta['dak_event_age_limit'][0]; 
 							} else { 
 								echo '18 for studenter 20 for andre'; 
 							} ?>
