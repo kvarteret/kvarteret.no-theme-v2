@@ -460,3 +460,27 @@ function kvarteret_author_meta($id, $custom_author) {
 	}
 	return $return;
 }
+
+// generate date for event meta
+function kvarteret_event_meta_date($start_date, $start_time, $end_date, $end_time) {
+	return sprintf('%s kl. %s til %s kl. %s', date('d. M Y', strtotime($start_date)), date('H:i', strtotime($start_time)), ($end_date != $start_date ? date('d. M Y', strtotime($end_date)):""), date('H:i', strtotime($end_time)));
+} 
+
+/**
+ * Generates an event meta box
+ * @since Kvarteret.no v2.0
+ */
+function kvarteret_event_meta($event_meta) {
+	$return = '<div class="date">'.kvarteret_event_meta_date($event_meta['dak_event_start_date'][0], $event_meta['dak_event_start_time'][0], $event_meta['dak_event_end_date'][0], $event_meta['dak_event_end_time'][0]).'</div>';
+	$return .= "category @ somewhere";
+	$return .= sprintf("<li>Arrangør: %s</li>", $event_meta['dak_events_arranger_name'][0]);
+	$return .= sprintf("<li>CC: %s</li>", $event_meta['dak_events_covercharge'][0]);
+	$return .= sprintf("<li>Aldersgrese: %s</li>", (isset($event_meta['dak_event_age_limit'][0])?$event_meta['dak_event_age_limit'][0]:"20 år, 18 med studentbevis"));
+
+
+	// 	Konsert i Teglverket
+	// Arrangør: RF
+	// CC: 200,-
+	// Aldersgrense: 20 år (18 med studentbevis/forhåndskjøpt billett)
+	return $return;
+}
