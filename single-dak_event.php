@@ -14,11 +14,13 @@
 get_header(); ?>
 
 	<article id="primary" class="standard_wrapper content_container clearfix">
-		<?php while ( have_posts() ) : the_post(); ?>
+		<?php 	while ( have_posts() ) : the_post(); 
+					$event_meta = get_post_meta(get_the_ID());
+		?>
 		<header class="single_header article_header clearfix">
 			<?php 
-				if( has_post_thumbnail() ) {
-					the_post_thumbnail('full-thumbnail', array('class' => 'article_thumbnail responsive')); 
+				if( $event_meta['dak_event_primary_picture'][0] ) {
+					printf('<img src="%s" alt="" class="article_thumbnail responsive" />', $event_meta['dak_event_primary_picture'][0]);	
 				} else {
 					echo '<img src="' . get_bloginfo('template_directory') . '/images/missing_image.png" alt="" clasS="article_thumbnail responsive" />';
 				}
@@ -31,10 +33,7 @@ get_header(); ?>
 		</section>
 
 		<aside class="meta one-third column">
-			<div class="date">
-				 <?php the_time( 'j. F Y' ); ?>
-			</div>
-			<?php echo kvarteret_author_meta(get_the_author_meta('ID'), get_post_meta($post->ID, "article_author", true)); ?> 
+			<?php echo kvarteret_event_meta($event_meta); ?> 
 			<div class="share clearfix">
 				<a href="https://www.facebook.com/sharer.php?u=<?php echo urlencode(get_permalink()); ?>&t=<?php echo urlencode(get_the_title()); ?>" class="facebook_share" title="Del på Facebook">Del på facebook</a>
 				<a href="http://twitter.com/share?url=<?php echo urlencode(get_permalink()); ?>&text=<?php the_title(); ?>&via=Kvarteret" target="_blank" rel="nofollow" class="twitter_share" alt="Del på Twitter">Del på Twitter</a>
