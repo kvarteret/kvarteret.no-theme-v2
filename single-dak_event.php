@@ -29,6 +29,8 @@ get_header(); ?>
 		</header>
 
 		<section class="article_content two-thirds column">
+			<?php the_excerpt(); ?>
+
 			<?php the_content(); ?>
 		</section>
 
