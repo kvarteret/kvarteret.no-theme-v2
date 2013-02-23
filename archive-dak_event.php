@@ -33,6 +33,15 @@ get_header(); ?>
 				array(
 					'post_type' => 'dak_event',
 					'post_status' => 'any', // temporary, change to published
+					'orderby' => 'meta_value',
+					'order' => 'ASC',
+					'meta_query' => array(
+						array(
+							'key' => 'dak_event_start_date',
+							'value' => date('Y-m-d'),
+							'compare' => '>=',
+						)
+					)
 				)
 			);
 			$current_date = date('Y-m-d');
