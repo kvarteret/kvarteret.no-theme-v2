@@ -32,18 +32,16 @@ get_header(); ?>
 			$event_query = new WP_Query(
 				array(
 					'post_type' => 'dak_event',
-					'post_status' => 'any', // temporary, change to published
+					'post_status' => 'published',
+					'meta_key' => 'dak_event_start_date',
+					'meta_value' => date('Y-m-d'),
+					'meta_compare' => '>=',
 					'orderby' => 'meta_value',
 					'order' => 'ASC',
-					'meta_query' => array(
-						array(
-							'key' => 'dak_event_start_date',
-							'value' => date('Y-m-d'),
-							'compare' => '>=',
-						)
-					)
 				)
 			);
+
+			error_log($event_query->request);
 			$current_date = date('Y-m-d');
 			$loop_active_start_date = "";
 			$loop_active_start_time = "";
