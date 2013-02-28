@@ -58,7 +58,7 @@ function twentytwelve_setup() {
 	add_theme_support( 'automatic-feed-links' );
 
 	// This theme supports a variety of post formats.
-	add_theme_support( 'post-formats', array( 'aside', 'image', 'link', 'quote', 'status' ) );
+	add_theme_support( 'post-formats', array( 'aside', 'image', 'link', 'quote', 'status', 'dak_event' ) );
 
 	// required menus
 	register_nav_menus( array(
