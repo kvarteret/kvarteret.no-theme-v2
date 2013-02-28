@@ -19,8 +19,8 @@ get_header(); ?>
 		?>
 		<header class="single_header article_header clearfix">
 			<?php 
-				if( $event_meta['dak_event_primary_picture'][0] ) {
-					printf('<img src="%s" alt="" class="article_thumbnail responsive" />', $event_meta['dak_event_primary_picture'][0]);	
+				if( has_post_thumbnail() ) {
+					the_post_thumbnail('post-thumbnail', array('class' => 'article_thumbnail responsive'));
 				} else {
 					echo '<img src="' . get_bloginfo('template_directory') . '/images/missing_image.png" alt="" clasS="article_thumbnail responsive" />';
 				}
