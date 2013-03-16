@@ -23,8 +23,8 @@ get_header(); ?>
 				<li><a href="">Desember</a></li>
 				<li><a href="">Arkiv</a></li>
 			</ul>
-			<form class="white right js-search" action="<?php echo site_url(); ?>/?" method="get">
-				<input type="text" placeholder="søk..." />
+			<form class="white right js-search" action="<?php echo site_url(); ?>/?post_type=dak_event&s=" method="get">
+				<input type="text" name="s" placeholder="søk..." />
 				<input type="hidden" name="post_type" value="dak_event" />
 				<button>Søk</button>
 			</form>
@@ -71,11 +71,11 @@ get_header(); ?>
 					<h2 class="inline-block"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a> <small class="time">(<?=$event_meta['dak_event_start_time'][0];?> - <?=$event_meta['dak_event_end_time'][0];?>)</small></h2>
 					
 					<div class="meta">
-						CC: <?php if($event_meta['dak_event_covercharge'][0]) { 
-								echo $event_meta['dak_event_covercharge'][0]; 
+							<?php if($event_meta['dak_event_covercharge'][0]) { 
+								echo 'CC: ' . $event_meta['dak_event_covercharge'][0]; 
 							} else { 
-								echo 'Udefinert'; 
-							} ?>
+							} 
+							?>
 						• Aldersgrense: <?php if($event_meta['dak_event_age_limit'][0]) { 
 								echo $event_meta['dak_event_age_limit'][0]; 
 							} else { 
