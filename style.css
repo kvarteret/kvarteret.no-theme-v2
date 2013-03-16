@@ -1286,7 +1286,7 @@ footer p {
   text-align: center;
   width: 100%; }
 
-#frontpage_articles .one-third:nth-child(3n+1) {
+.grid_fix .one-third:nth-child(3n+1) {
   clear: left; }
 
 /* frontpage */
