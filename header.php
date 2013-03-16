@@ -82,10 +82,10 @@
 					Nav
 				</a>
 				<div class="nav-collapse">
-					<?php wp_nav_menu( array( 'container_class' => 'left', 'menu' => 'Nav left' ) ); ?>
+					<?php wp_nav_menu( array( 'container_class' => 'left', 'theme_location' => 'main_navigation_left' ) ); ?>
 				</div>
 				<div class="nav-collapse">
-					<?php wp_nav_menu( array( 'container_class' => 'right', 'menu' => 'Nav right' ) ); ?>
+					<?php wp_nav_menu( array( 'container_class' => 'right', 'theme_location' => 'main_navigation_right' ) ); ?>
 				</div>
 			</nav>
 			
