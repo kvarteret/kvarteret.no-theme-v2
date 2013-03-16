@@ -15,7 +15,7 @@
  */
 
 get_header(); ?>
-	<section id="frontpage_articles" class="standard_wrapper content_container clearfix">
+	<section id="frontpage_articles" class="standard_wrapper content_container clearfix grid_fix">
 		<?php if ( have_posts() ) : ?>
 			<?php
 		        global $post;
@@ -62,7 +62,6 @@ get_header(); ?>
 				<article class="one-third column">
 
 					<a href="<?php the_permalink(); ?>">
-						<!-- <img src="http://placekitten.com/300/155" class="article_thumbnail responsive" alt="" /> -->
 						<?php
 							if(has_post_thumbnail()) {
 								the_post_thumbnail('one-third-thumbnail',  array('class' => 'article_thumbnail responsive'));
@@ -76,7 +75,22 @@ get_header(); ?>
 				</article>
 
 			<?php endforeach; ?>
+			<div style="clear:both" class="text-center standard-padding">
+				<?php
+					global $wp_query;
+
+					$big = 999999999; // need an unlikely integer
+
+					echo paginate_links( array(
+						'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+						'format' => '?paged=%#%',
+						'current' => max( 1, get_query_var('paged') ),
+						'total' => $wp_query->max_num_pages
+					) );
+				?>
+			</div>
 			</section>
+
 		<?php endif; ?>
 	</section>
 
