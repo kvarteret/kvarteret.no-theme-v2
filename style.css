@@ -3,7 +3,7 @@
 Theme Name: Kvarteret.no v 2
 Theme URI: http://github.com/kvarteret/
 Description: Theme developed for Kvarteret.no by the web group 2012-2013.
-Author: Webgruppen
+Author: Webgruppen 
 Author URI: http://kvarteret.no/
 Version: 2.0
 Tags: 
@@ -906,6 +906,13 @@ img.scale-with-grid, img.responsive {
 	#Font-Face */
 /* #Site Styles
 ================================================== */
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url("bebasneue-webfont.eot");
+  src: url("bebasneue-webfont.eot?#iefix") format("embedded-opentype"), url("bebasneue-webfont.svg#") format("svg"), url("bebasneue-webfont.woff") format("woff"), url("bebasneue-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
 body {
   background: url("images/background.jpg") center top no-repeat black;
   -webkit-background-size: cover;
@@ -918,14 +925,6 @@ a {
   text-decoration: none;
   color: #26A9FF; }
 
-.clear_both {
-  clear: both; }
-
-.message {
-  background: #FFF464;
-  padding: 12px;
-  margin: 12px; }
-
 .standard_wrapper {
   background: #fff; }
 
@@ -937,6 +936,7 @@ a {
 .wp-caption {
   max-width: 100% !important; }
 
+/* Header */
 #main_header {
   margin-top: 150px;
   position: relative;
@@ -989,6 +989,7 @@ a {
 #search button:active {
   margin-top: 0; }
 
+/* Navigation */
 #main_header #main_nav {
   background: #e5190f;
   /* Old browsers */
@@ -1003,7 +1004,7 @@ a {
   background: linear-gradient(to bottom, #e5190f 0%, #a8120b 100%, #a8120b 100%);
   /* W3C */
   /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5190f', endColorstr='#a8120b',GradientType=0 ); /* IE6-9 */
-  font-family: "BebasNeueRegular", "Bebas Neue", Tahoma, Helvetica, Arial, sans-serif;
+  font-family: "Bebas Neue Regular", "Bebas Neue", Tahoma, Helvetica, Arial, sans-serif;
   font-size: 1.5em;
   height: 46px;
   position: relative;
@@ -1096,14 +1097,17 @@ li.active {
   margin-left: -60px;
   top: -86px; }
 
+/* used in responsive versions < desktop */
 #logo_dark {
   display: none; }
 
+/* unused atm */
 #language_selection {
   position: absolute;
   top: 0;
   right: 0; }
 
+/* opening times below header */
 #opening_times {
   text-align: center;
   padding: 12px;
@@ -1119,6 +1123,7 @@ li.active {
   display: inline-block;
   margin-bottom: 0; }
 
+/* events below header */
 header.event {
   background: #000;
   color: #fff;
@@ -1154,7 +1159,8 @@ header.event nav li {
 .content_container {
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  margin-bottom: 12px; }
+  margin-bottom: 12px;
+  background: #fff; }
 
 .sidebar {
   float: right; }
