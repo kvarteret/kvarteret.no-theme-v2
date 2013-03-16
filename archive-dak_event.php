@@ -23,8 +23,9 @@ get_header(); ?>
 				<li><a href="">Desember</a></li>
 				<li><a href="">Arkiv</a></li>
 			</ul>
-			<form class="white right">
+			<form class="white right js-search" action="<?php echo site_url(); ?>/?" method="get">
 				<input type="text" placeholder="søk..." />
+				<input type="hidden" name="post_type" value="dak_event" />
 				<button>Søk</button>
 			</form>
 		</nav>
@@ -86,25 +87,5 @@ get_header(); ?>
 			endwhile; 
 		?>
 
-		
-		<div class="event day wrapper" style="display:none">
-			<div class="date">I dag, 17. september 2012</div>
-			<div class="event time wrapper">
-				<div class="time">20:00</div>
-				<ul class="event time list">
-					<li class="event">
-						<h2>Mikromandag</h2>
-						<div class="time">(20:00 - 01:00)</div>
-						<div class="meta">
-							Pub @ Grøndahls flygel- og pianolager <br />
-							CC: gratis • Aldersgrense: 18
-						</div>
-						<a href="" class="right arranger_logo">
-							<img src="" alt="" />
-						</a>
-					</li>
-				</ul>
-			</div>
-		</div>
 	</section>
 <?php get_footer(); ?>
