@@ -92,6 +92,12 @@ function twentytwelve_setup() {
 }
 add_action( 'after_setup_theme', 'twentytwelve_setup' );
 
+function kvarteret_rewrite_rules() {
+	add_rewrite_rule('program/([0-9]{4})/([0-9]{2})/?$', 'index.php?page_id=28&year=$matches[1]&monthnum=$matches[2]', 'top');
+	add_rewrite_rule('program/([0-9]{4})/?$', 'index.php?page_id=28&year=$matches[1]', 'top');
+}
+add_action('init', 'kvarteret_rewrite_rules');
+
 /**
  * Enqueues scripts and styles for front-end.
  *
@@ -500,4 +506,13 @@ function kvarteret_get_menu_name($location){
     $menu_title = wp_get_nav_menu_object($menus[$location])->name;
 
     return $menu_title;
+}
+
+add_action( 'load-themes.php', 'kvarteret_flush_rewrite_rules');
+function kvarteret_flush_rewrite_rules() {
+	global $pagenow, $wp_rewrite;
+	
+	if ( $pagenow == 'themes.php' && isset($_GET['activated']) ) {
+		flush_rewrite_rules();
+	}
 }
