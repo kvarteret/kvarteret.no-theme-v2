@@ -86,6 +86,9 @@ function twentytwelve_setup() {
 
 	add_image_size( 'full-thumbnail', 960, 496, true );
 	add_image_size( 'one-third-thumbnail', 296, 153, true );
+
+	// set default number of posts per page to 12
+	$wp_query->query_vars["posts_per_page"] = 12;
 }
 add_action( 'after_setup_theme', 'twentytwelve_setup' );
 
