@@ -58,7 +58,7 @@ function twentytwelve_setup() {
 	add_theme_support( 'automatic-feed-links' );
 
 	// This theme supports a variety of post formats.
-	add_theme_support( 'post-formats', array( 'aside', 'image', 'link', 'quote', 'status', 'dak_event' ) );
+	add_theme_support( 'post-formats', array( 'aside', 'image', 'link', 'status', 'dak_event' ) );
 
 	// required menus
 	register_nav_menus( array(
@@ -483,4 +483,18 @@ function kvarteret_event_meta($event_meta) {
 	// CC: 200,-
 	// Aldersgrense: 20 år (18 med studentbevis/forhåndskjøpt billett)
 	return $return;
+}
+
+/**
+ * Returns the name of menu in given location check out register_nav_menus() (in this file) for valid input
+ * @since Kvarteret.no v2.0
+ */
+function kvarteret_get_menu_name($location){
+    if(!has_nav_menu($location)) 
+    	return false;
+
+    $menus = get_nav_menu_locations();
+    $menu_title = wp_get_nav_menu_object($menus[$location])->name;
+
+    return $menu_title;
 }
