@@ -31,9 +31,9 @@
 		</header><!-- .entry-header -->
 
 		<?php if ( is_search() ) : // Only display Excerpts for Search ?>
-		<div class="entry-summary">
+		<article class="one-third column">
 			<?php the_excerpt(); ?>
-		</div><!-- .entry-summary -->
+		</article><!-- .entry-summary -->
 		<?php else : ?>
 		<div class="entry-content">
 			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'twentytwelve' ) ); ?>
