@@ -11,7 +11,12 @@ get_header(); ?>
 
 	<section id="primary" class="standard_wrapper content_container clearfix">
 
-		<?php if ( have_posts() ) : ?>
+		<?php 
+			$wp_query->query_vars["posts_per_page"] = 12;
+			$wp_query->get_posts();
+
+			if ( have_posts() ) : 
+		?>
 
 			<header class="page-header">
 				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'twentytwelve' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
@@ -48,7 +53,20 @@ get_header(); ?>
 					</article>
 				<?php endwhile; ?>
 			</section>
+			<div style="clear:both" class="text-center standard-padding">
+				<?php
+					global $wp_query;
 
+					$big = 999999999; // need an unlikely integer
+
+					echo paginate_links( array(
+						'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+						'format' => '?paged=%#%',
+						'current' => max( 1, get_query_var('paged') ),
+						'total' => $wp_query->max_num_pages
+					) );
+				?>
+			</div>
 		<?php else : ?>
 
 			<article id="post-0" class="post no-results not-found">
