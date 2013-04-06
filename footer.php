@@ -18,7 +18,7 @@
 					<h2><?php echo kvarteret_get_menu_name('det_akademiske_kvarter'); ?></h2>
 					<?php
 						wp_nav_menu(array(
-							'theme_location'  => 'det_akadmiske_kvarter',
+							'theme_location'  => 'det_akademiske_kvarter',
 							'echo'            => true,
 							'fallback_cb'     => false,
 							'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
@@ -27,14 +27,16 @@
 					?>
 				</div>
 				<div class="three columns">
-					<h2>Kvarteret.no</h2>
-					<ul>
-						<li><a href="">Webgruppen</li></a>
-						<li><a href="">Tekstgruppen</li></a>
-						<li><a href="">Arr.db</li></a>
-						<li><a href="">Arr.api</li></a>
-						<li><a href="">GitHub</li></a>
-					</ul>
+					<h2><?php echo kvarteret_get_menu_name('kvarteret_no'); ?></h2>
+					<?php
+						wp_nav_menu(array(
+							'theme_location'  => 'kvarteret_no',
+							'echo'            => true,
+							'fallback_cb'     => false,
+							'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+							'depth'           => 1,
+						));
+					?>
 				</div>
 				<div class="three columns">
 					<h2>Kulturarrangører</h2>

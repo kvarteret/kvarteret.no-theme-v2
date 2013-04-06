@@ -12,9 +12,6 @@ get_header(); ?>
 	<section id="primary" class="standard_wrapper content_container clearfix">
 
 		<?php 
-			$wp_query->query_vars["posts_per_page"] = 12;
-			$wp_query->get_posts();
-
 			if ( have_posts() ) : 
 		?>
 

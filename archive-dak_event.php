@@ -30,17 +30,44 @@ get_header(); ?>
 			</form>
 		</nav>
 		<?php 
-			$event_query = new WP_Query(
-				array(
-					'post_type' => 'dak_event',
-					'post_status' => 'published',
-					'meta_key' => 'dak_event_start_date',
-					'meta_value' => date('Y-m-d'),
-					'meta_compare' => '>=',
-					'orderby' => 'meta_value',
-					'order' => 'ASC',
-				)
+
+
+			$query_array = array(
+				'post_type' => 'dak_event',
 			);
+
+			error_log(print_r($wp_query, true));
+			error_log(print_r($_GET, true));
+
+			$year = get_query_var('year');
+			$monthnum = get_query_var('monthnum');
+
+			error_log("${year} ${day}");
+
+			if ($year != '' && $monthnum != '') {
+				$dt = new DateTime();
+				$dt->setDate($year, $monthnum, 1);
+				$query_array['meta_query']['start']['value'] = $dt->format('Y-m-d');
+				$query_array['meta_query']['start']['compare'] = '>=';
+
+				$dt->add(new DateInterval('P1M'));
+				$query_array['meta_query']['end'] = array(
+					'key' => 'dak_event_start_date',
+					'value' => $dt->format('Y-m-d'),
+					'compare' => '<'
+				);
+			} else if ($year != '') {
+				$query_array['meta_query']['start']['value'] = sprintf("%4d-%02d-%02d", $year, 1, 1);
+				$query_array['meta_query']['start']['compare'] = '>=';
+
+				$query_array['meta_query']['end'] = array(
+					'key' => 'dak_event_start_date',
+					'value' => sprintf("%4d-%02d-%02d", $year, 12, 1),
+					'compare' => '<'
+				);
+			}
+
+			$event_query = new WP_Query($query_array);
 
 			error_log($event_query->request);
 			$current_date = date('Y-m-d');
@@ -71,7 +98,7 @@ get_header(); ?>
 					<h2 class="inline-block"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a> <small class="time">(<?=$event_meta['dak_event_start_time'][0];?> - <?=$event_meta['dak_event_end_time'][0];?>)</small></h2>
 					
 					<div class="meta">
-							<?php if($event_meta['dak_event_covercharge'][0]) { 
+						<?php if($event_meta['dak_event_covercharge'][0]) { 
 								echo 'CC: ' . $event_meta['dak_event_covercharge'][0]; 
 							} else { 
 							} 
@@ -100,6 +127,5 @@ get_header(); ?>
 				) );
 			?>
 		</div>
-
 	</section>
 <?php get_footer(); ?>
