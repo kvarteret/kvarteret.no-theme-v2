@@ -39,40 +39,40 @@
 					?>
 				</div>
 				<div class="three columns">
-					<h2>Kulturarrangører</h2>
-					<ul>
-						<li><a href="">ASF</li></a>
-						<li><a href="">RF</li></a>
-						<li><a href="">Bergen Filmklubb</li></a>
-						<li><a href="">Immaturus</li></a>
-						<li><a href="">Samfunnet</li></a>
-					</ul>
+					<h2><?php echo kvarteret_get_menu_name('culture_arrangers'); ?></h2>
+					<?php
+						wp_nav_menu(array(
+							'theme_location'  => 'culture_arrangers',
+							'echo'            => true,
+							'fallback_cb'     => false,
+							'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+							'depth'           => 1,
+						));
+					?>
 				</div>
 				<div class="three columns">
-					<h2>Arrangere på Kvarteret</h2>
-					<ul>
-						<li><a href="">Betingelser</li></a>
-						<li><a href="">Romoversikt</li></a>
-						<li><a href="">Romsøknad</li></a>
-						<li><a href="">Bestille tjenester</li></a>
-						<li><a href="">Teknisk Raider</li></a>
-						<li><a href="">Brukerkontrakt</li></a>
-					</ul>
+					<h2><?php echo kvarteret_get_menu_name('arrange'); ?></h2>
+					<?php
+						wp_nav_menu(array(
+							'theme_location'  => 'arrange',
+							'echo'            => true,
+							'fallback_cb'     => false,
+							'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+							'depth'           => 1,
+						));
+					?>
 				</div>
 				<div class="three columns">
-					<h2>Arbeidsgrupper</h2>
-					<ul>
-						<li><a href="">PR-etaten</li></a>
-						<li><a href="">Skjenkegruppen</li></a>
-						<li><a href="">Vaktetaten</li></a>
-						<li><a href="">Kraftetaten</li></a>
-						<li><a href="">Personalgruppen</li></a>
-						<li><a href="">E-tjenesten</li></a>
-						<li><a href="">Romvesenet</li></a>
-						<li><a href="">Rettsvesenet</li></a>
-
-						<li><a href="">KVAST</li></a>
-					</ul>
+					<h2><?php echo kvarteret_get_menu_name('workgroups'); ?></h2>
+					<?php
+						wp_nav_menu(array(
+							'theme_location'  => 'workgroups',
+							'echo'            => true,
+							'fallback_cb'     => false,
+							'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+							'depth'           => 1,
+						));
+					?>
 				</div>
 			</div>
 			<?php dynamic_sidebar('the-footer-copyright'); ?>
