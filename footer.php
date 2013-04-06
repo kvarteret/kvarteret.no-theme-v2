@@ -15,18 +15,16 @@
 			<div class="standard_wrapper clearfix">
 				<?php dynamic_sidebar('the-footer-nav'); ?>
 				<div class="three columns offset-by-one">
-					<h2>Det Akademiske Kvarter</h2>
-					<ul>
-						<li><a href="">Historie</a></li>
-						<li><a href="">Huset</a></li>
-						<li><a href="">Romoversikt</a></li>
-						<li><a href="">Organisasjonsoversikt</a></li>
-						<li><a href="">Internwiki</a></li>
-						<li><a href="">SkiBAS</a></li>
-
-						<li><a href="">Bli Frivillig</a></li>
-						<li><a href="">Kontakt oss</a></li>
-					</ul>
+					<h2><?php echo kvarteret_get_menu_name('det_akademiske_kvarter'); ?></h2>
+					<?php
+						wp_nav_menu(array(
+							'theme_location'  => 'det_akadmiske_kvarter',
+							'echo'            => true,
+							'fallback_cb'     => false,
+							'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+							'depth'           => 1,
+						));
+					?>
 				</div>
 				<div class="three columns">
 					<h2>Kvarteret.no</h2>
