@@ -9,7 +9,7 @@
 
 get_header(); ?>
 
-	<section id="primary" class="standard_wrapper content_container standard_padding">
+	<section id="primary" class="standard_wrapper content_container clearfix">
 
 		<?php if ( have_posts() ) : ?>
 
@@ -17,11 +17,37 @@ get_header(); ?>
 				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'twentytwelve' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 			</header>
 
-			<?php /* Start the Loop */ ?>
-			<?php while ( have_posts() ) : the_post(); ?>
-				<?php get_template_part( 'content', get_post_format() ); ?>
-			<?php endwhile; ?>
+			<section class="articles no_padding no_margin grid_fix">
+				<?php /* Start the Loop */ ?>
+				<?php while ( have_posts() ) : the_post(); ?>
+					<article class="one-third column">
+						<a href="<?php the_permalink(); ?>">
+							<?php
+								if(has_post_thumbnail()) {
+									the_post_thumbnail('one-third-thumbnail',  array('class' => 'article_thumbnail responsive'));
+								} else {
+									echo '<img src="' . get_bloginfo('template_directory') . '/images/missing_image_296x153.png" alt="" clasS="article_thumbnail responsive" />';
+								}
+							?>
+							<h2>
+								<?php 
+									$post_type = get_post_type( $post->ID );
+									if($post_type == "dak_event")
+										echo 'Arrangement: ';
+									elseif($post_type == "post")
+										echo 'Artikkel: ';
+									elseif($post_type == "dak_smugmug")
+										echo 'Bildeserie: ';
 
+									the_title(); 
+									?>
+							</h2>
+						</a>
+						<?php $event_meta = get_post_meta(get_the_ID()); ?>
+						<p><?php the_excerpt(); ?></p>
+					</article>
+				<?php endwhile; ?>
+			</section>
 
 		<?php else : ?>
 
