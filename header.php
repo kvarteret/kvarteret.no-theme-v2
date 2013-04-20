@@ -82,15 +82,27 @@
 					Nav
 				</a>
 				<div class="nav-collapse">
-					<?php wp_nav_menu( array( 'container_class' => 'left', 'theme_location' => 'main_navigation_left' ) ); ?>
+					<?php if (isset($language) && $language == "english") : ?>
+						<?php wp_nav_menu( array( 'container_class' => 'left', 'theme_location' => 'english_main_navigation_left' ) ); ?>
+					<?php else : ?>
+						<?php wp_nav_menu( array( 'container_class' => 'left', 'theme_location' => 'main_navigation_left' ) ); ?>
+					<?php endif; ?>
 				</div>
 				<div class="nav-collapse">
-					<?php wp_nav_menu( array( 'container_class' => 'right', 'theme_location' => 'main_navigation_right' ) ); ?>
+					<?php if (isset($language) && $language == "english") : ?>
+						<?php wp_nav_menu( array( 'container_class' => 'left', 'theme_location' => 'english_main_navigation_right' ) ); ?>
+					<?php else : ?>
+						<?php wp_nav_menu( array( 'container_class' => 'right', 'theme_location' => 'main_navigation_right' ) ); ?>
+					<?php endif; ?>
 				</div>
 			</nav>
 			
 			<section id="opening_times" class="standard_wrapper">
-				<?php dynamic_sidebar('opening-times'); ?>
+				<?php if (isset($language) && $language == "english") : ?>
+					<?php dynamic_sidebar('english-opening-times'); ?>
+				<?php else : ?>
+					<?php dynamic_sidebar('opening-times'); ?>
+				<?php endif; ?>
 			</section>
 			
 		</header>
