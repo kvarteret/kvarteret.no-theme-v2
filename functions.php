@@ -93,6 +93,7 @@ function twentytwelve_setup() {
 add_action( 'after_setup_theme', 'twentytwelve_setup' );
 
 function kvarteret_rewrite_rules() {
+	add_rewrite_rule('program/([0-9]{4})/([0-9]{2})/page/([0-9]{1,})/?$', 'index.php?page_id=28&year=$matches[1]&monthnum=$matches[2]&paged=$matches[3]', 'top');
 	add_rewrite_rule('program/([0-9]{4})/([0-9]{2})/?$', 'index.php?page_id=28&year=$matches[1]&monthnum=$matches[2]', 'top');
 	add_rewrite_rule('program/([0-9]{4})/?$', 'index.php?page_id=28&year=$matches[1]', 'top');
 }
