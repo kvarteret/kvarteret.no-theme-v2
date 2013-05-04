@@ -32,8 +32,21 @@ get_header(); ?>
 		<?php 
 
 
+			$dt = new DateTime();
+
 			$query_array = array(
 				'post_type' => 'dak_event',
+				//'meta_key' => 'dak_event_start_date',
+				//'orderby' => 'meta_value',
+				'meta_query' => array(
+					'start' => array(
+						'key' => 'dak_event_start_date',
+						'value' => $dt->format('Y-m-d'),
+						'compare' => '>=',
+						'type' => 'DATETIME'
+					)
+				),
+				'order' => 'ASC'
 			);
 
 			error_log(print_r($wp_query, true));
@@ -42,30 +55,30 @@ get_header(); ?>
 			$year = get_query_var('year');
 			$monthnum = get_query_var('monthnum');
 
-			error_log("${year} ${day}");
-
 			if ($year != '' && $monthnum != '') {
 				$dt = new DateTime();
 				$dt->setDate($year, $monthnum, 1);
 				$query_array['meta_query']['start']['value'] = $dt->format('Y-m-d');
-				$query_array['meta_query']['start']['compare'] = '>=';
 
 				$dt->add(new DateInterval('P1M'));
 				$query_array['meta_query']['end'] = array(
 					'key' => 'dak_event_start_date',
 					'value' => $dt->format('Y-m-d'),
-					'compare' => '<'
+					'compare' => '<',
+					'type' => 'DATETIME'
 				);
 			} else if ($year != '') {
 				$query_array['meta_query']['start']['value'] = sprintf("%4d-%02d-%02d", $year, 1, 1);
-				$query_array['meta_query']['start']['compare'] = '>=';
 
 				$query_array['meta_query']['end'] = array(
 					'key' => 'dak_event_start_date',
-					'value' => sprintf("%4d-%02d-%02d", $year, 12, 1),
-					'compare' => '<'
+					'value' => sprintf("%4d-%02d-%02d", $year, 12, 31),
+					'compare' => '<=',
+					'type' => 'DATETIME'
 				);
 			}
+
+			$query_array['paged'] = get_query_var('paged');
 
 			$event_query = new WP_Query($query_array);
 
