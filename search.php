@@ -15,8 +15,8 @@ get_header(); ?>
 			if ( have_posts() ) : 
 		?>
 
-			<header class="page-header">
-				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'twentytwelve' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+			<header class="page-header standard-left-padding standard-top-padding">
+				<h1 class="page-title"><?php printf( __( 'Search: %s', 'twentytwelve' ), '<em>"' . get_search_query() . '"</em>' ); ?></h1>
 			</header>
 
 			<section class="articles no_padding no_margin grid_fix">
@@ -28,12 +28,19 @@ get_header(); ?>
 								if(has_post_thumbnail()) {
 									the_post_thumbnail('one-third-thumbnail',  array('class' => 'article_thumbnail responsive'));
 								} else {
-									echo '<img src="' . get_bloginfo('template_directory') . '/images/missing_image_296x153.png" alt="" clasS="article_thumbnail responsive" />';
+									echo '<img src="' . get_bloginfo('template_directory') . '/images/missing_image_296x153.png" alt="" class="article_thumbnail responsive" />';
 								}
+							?>
+							<?php 
+								$post_type = get_post_type( $post->ID );
+								if($post_type == "dak_event") { 
+									$event_meta = get_post_meta(get_the_ID());
+									echo '<div class="date clear_both">'.strftime('%A, %d. %B %Y', strtotime($event_meta['dak_event_start_date'][0])).' - ' . strftime('%R', $event_meta['dak_event_start_time'][0]) . '</div>';
+							 	} 
 							?>
 							<h2>
 								<?php 
-									$post_type = get_post_type( $post->ID );
+									
 									if($post_type == "dak_event")
 										echo 'Arrangement: ';
 									elseif($post_type == "post")
@@ -45,7 +52,7 @@ get_header(); ?>
 									?>
 							</h2>
 						</a>
-						<?php $event_meta = get_post_meta(get_the_ID()); ?>
+						
 						<p><?php the_excerpt(); ?></p>
 					</article>
 				<?php endwhile; ?>
