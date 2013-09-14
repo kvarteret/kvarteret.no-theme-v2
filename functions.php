@@ -93,9 +93,15 @@ function twentytwelve_setup() {
 add_action( 'after_setup_theme', 'twentytwelve_setup' );
 
 function kvarteret_rewrite_rules() {
-	add_rewrite_rule('program/([0-9]{4})/([0-9]{2})/page/([0-9]{1,})/?$', 'index.php?page_id=28&year=$matches[1]&monthnum=$matches[2]&paged=$matches[3]', 'top');
-	add_rewrite_rule('program/([0-9]{4})/([0-9]{2})/?$', 'index.php?page_id=28&year=$matches[1]&monthnum=$matches[2]', 'top');
-	add_rewrite_rule('program/([0-9]{4})/?$', 'index.php?page_id=28&year=$matches[1]', 'top');
+	add_rewrite_rule('program/([0-9]{4})/([0-9]{2})/page/([0-9]{1,})/?$',
+		'index.php?page_id=28&year=$matches[1]&monthnum=$matches[2]&paged=$matches[3]', 'top');
+	add_rewrite_rule('program/([0-9]{4})/([0-9]{2})/?$',
+		'index.php?page_id=28&year=$matches[1]&monthnum=$matches[2]', 'top');
+	add_rewrite_rule('program/([0-9]{4})/page/([0-9]{1,})/?$',
+		'index.php?page_id=28&year=$matches[1]&paged=$matches[2]', 'top');
+	add_rewrite_rule('program/([0-9]{4})/?$',
+		'index.php?page_id=28&year=$matches[1]', 'top');
+	
 }
 add_action('init', 'kvarteret_rewrite_rules');
 
@@ -473,7 +479,14 @@ function kvarteret_author_meta($id, $custom_author) {
 
 // generate date for event meta
 function kvarteret_event_meta_date($start_date, $start_time, $end_date, $end_time) {
-	return sprintf('%s kl. %s til %s kl. %s', date('d. M Y', strtotime($start_date)), date('H:i', strtotime($start_time)), ($end_date != $start_date ? date('d. M Y', strtotime($end_date)):""), date('H:i', strtotime($end_time)));
+	return 
+		sprintf(
+			'%s kl. %s til %s kl. %s',
+			date('d. M Y', strtotime($start_date)), 
+			date('H:i', strtotime($start_time)), 
+			($end_date != $start_date ? date('d. M Y', strtotime($end_date)):""), 
+			date('H:i', strtotime($end_time))
+		);
 } 
 
 /**
