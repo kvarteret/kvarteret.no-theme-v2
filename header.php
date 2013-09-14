@@ -8,6 +8,15 @@
  * @subpackage Kvarteret.no v2
  * @since Kvarteret.no v2.0
  */
+
+
+if(!isset($language) || (isset($language) && $language == "no_NB")) {
+	setlocale ( LC_ALL , 'no_NB', 'no_NO', 'norwegian', 'bokmål');
+	echo "<script>console.log('PHP locale set to Norwegian');</script>";
+} else {
+	setlocale ( LC_ALL, $language);
+	echo "<script>console.log('PHP locale set to ".$language."');</script>";
+}
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
@@ -81,6 +90,8 @@
 				<a class="btn_navbar_toggle" data-toggle="collapse" data-target=".nav-collapse">
 					Nav
 				</a>
+				
+				wp_nav_menu
 				<div class="nav-collapse">
 					<?php if (isset($language) && $language == "english") : ?>
 						<?php wp_nav_menu( array( 'container_class' => 'left', 'theme_location' => 'english_main_navigation_left' ) ); ?>

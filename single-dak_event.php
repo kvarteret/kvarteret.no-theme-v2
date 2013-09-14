@@ -10,7 +10,7 @@
 /* TODO
 	Content, image, start-end, arranger, arranger logo, category
 */
-
+$language = 'en_EN';
 get_header(); ?>
 
 	<article id="primary" class="standard_wrapper content_container clearfix">
