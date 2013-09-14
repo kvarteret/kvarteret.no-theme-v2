@@ -9,6 +9,47 @@
  * @since Kvarteret.no v2.0
  */
 
+// Set query params, specifically start and end of date range
+$year = get_query_var('year');
+$monthnum = get_query_var('monthnum');
+
+$dtStart = new DateTime();
+$dtEnd = clone $dtStart;
+$dtEnd->add(new DateInterval('P14D'));
+
+if ($year != '' && $monthnum != '') {
+	$dtStart->setDate($year, $monthnum, 1);
+	$dtEnd = clone $dtStart;
+	$dtEnd->add(new DateInterval('P1M')); // Add one month
+} else if ($year != '') {
+	$dtStart->setDate($year, 1, 1);
+	$dtEnd = clone $dtStart;
+	$dtEnd->add(new DateInterval('P1Y')); // Add one year
+}
+
+// Set up query
+$query_array = array(
+	'post_type' => 'dak_event',
+	'meta_query' => array(
+		'start' => array(
+			'key' => 'dak_event_start_date',
+			'value' => $dtStart->format('Y-m-d'),
+			'compare' => '>=',
+			'type' => 'DATETIME'
+		),
+		'end' => array(
+			'key' => 'dak_event_start_date',
+			'value' => $dtEnd->format('Y-m-d'),
+			'compare' => '<',
+			'type' => 'DATETIME'
+		)
+	),
+	'order' => 'ASC',
+	'paged' => get_query_var('paged')
+);
+
+// Begin building of page
+
 get_header(); ?>
 	<section id="primary" class="standard_wrapper content_container clearfix standard-padding event-list">
 		<a class="big button right" href="#">Arrangere</a>
@@ -16,11 +57,16 @@ get_header(); ?>
 	
 		<nav id="event_nav" class="event_nav clearfix">
 			<ul>
-				<li class="active"><a href="">neste 14 dager</a></li>
-				<li><a href="">September</a></li>
-				<li><a href="">Oktober</a></li>
-				<li><a href="">November</a></li>
-				<li><a href="">Desember</a></li>
+				<li class="active"><a href="<?php echo get_page_link() ?>">neste 14 dager</a></li>
+				<?php 
+
+				$dt = new DateTime();
+				for ($i = 0; $i < 4; $i++) {
+					echo '<li><a href="' . get_page_link() . $dt->format('Y/m') .'">' . date_i18n('F', $dt->getTimestamp()). '</a></li>';
+					$dt = $dt->add(new DateInterval('P1M'));
+				}
+
+				?>
 				<li><a href="">Arkiv</a></li>
 			</ul>
 			<form class="white right js-search" action="<?php echo site_url(); ?>/?post_type=dak_event&s=" method="get">
@@ -29,60 +75,9 @@ get_header(); ?>
 				<button>Søk</button>
 			</form>
 		</nav>
-		<?php 
-
-
-			$dt = new DateTime();
-
-			$query_array = array(
-				'post_type' => 'dak_event',
-				//'meta_key' => 'dak_event_start_date',
-				//'orderby' => 'meta_value',
-				'meta_query' => array(
-					'start' => array(
-						'key' => 'dak_event_start_date',
-						'value' => $dt->format('Y-m-d'),
-						'compare' => '>=',
-						'type' => 'DATETIME'
-					)
-				),
-				'order' => 'ASC'
-			);
-
-			error_log(print_r($wp_query, true));
-			error_log(print_r($_GET, true));
-
-			$year = get_query_var('year');
-			$monthnum = get_query_var('monthnum');
-
-			if ($year != '' && $monthnum != '') {
-				$dt = new DateTime();
-				$dt->setDate($year, $monthnum, 1);
-				$query_array['meta_query']['start']['value'] = $dt->format('Y-m-d');
-
-				$dt->add(new DateInterval('P1M'));
-				$query_array['meta_query']['end'] = array(
-					'key' => 'dak_event_start_date',
-					'value' => $dt->format('Y-m-d'),
-					'compare' => '<',
-					'type' => 'DATETIME'
-				);
-			} else if ($year != '') {
-				$query_array['meta_query']['start']['value'] = sprintf("%4d-%02d-%02d", $year, 1, 1);
-
-				$query_array['meta_query']['end'] = array(
-					'key' => 'dak_event_start_date',
-					'value' => sprintf("%4d-%02d-%02d", $year, 12, 31),
-					'compare' => '<=',
-					'type' => 'DATETIME'
-				);
-			}
-
-			$query_array['paged'] = get_query_var('paged');
-
+		<?php
 			$event_query = new WP_Query($query_array);
 
-			error_log($event_query->request);
 			$current_date = date('Y-m-d');
 			$loop_active_start_date = "";
 			$another_temp_date = "";
@@ -114,14 +109,13 @@ get_header(); ?>
 					
 					<div class="meta">
 						<?php if($event_meta['dak_event_covercharge'][0]) { 
-								echo 'CC: ' . $event_meta['dak_event_covercharge'][0]; 
-							} else { 
-							} 
+								echo 'CC: ' . $event_meta['dak_event_covercharge'][0] . ' • '; 
+							}
 							?>
-						• Aldersgrense: <?php if($event_meta['dak_event_age_limit'][0]) { 
+						Aldersgrense: <?php if($event_meta['dak_event_age_limit'][0]) { 
 								echo $event_meta['dak_event_age_limit'][0]; 
 							} else { 
-								echo '18 for studenter 20 for andre'; 
+								echo '18 for studenter, 20 for andre'; 
 							} ?>
 					</div>
 				</div>
