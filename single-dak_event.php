@@ -35,7 +35,7 @@ get_header(); ?>
 		</section>
 
 		<aside class="meta one-third column">
-			<?php echo kvarteret_event_meta($event_meta); ?> 
+			<?php echo kvarteret_event_meta(get_the_ID(), $event_meta); ?> 
 			<div class="share clearfix">
 				<a href="https://www.facebook.com/sharer.php?u=<?php echo urlencode(get_permalink()); ?>&t=<?php echo urlencode(get_the_title()); ?>" class="facebook_share" title="Del på Facebook">Del på facebook</a>
 				<a href="http://twitter.com/share?url=<?php echo urlencode(get_permalink()); ?>&text=<?php the_title(); ?>&via=Kvarteret" target="_blank" rel="nofollow" class="twitter_share" alt="Del på Twitter">Del på Twitter</a>

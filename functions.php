@@ -530,11 +530,32 @@ function kvarteret_event_meta_date($start_date, $start_time, $end_date, $end_tim
  * Generates an event meta box
  * @since Kvarteret.no v2.0
  */
-function kvarteret_event_meta($event_meta) {
+function kvarteret_event_meta($post_id, $event_meta) {
 	$return = '<div class="date">'.kvarteret_event_meta_date($event_meta['dak_event_start_date'][0], $event_meta['dak_event_start_time'][0], $event_meta['dak_event_end_date'][0], $event_meta['dak_event_end_time'][0]).'</div>';
-	$return .= "category @ somewhere";
-	$return .= sprintf("<li>Arrangør: %s</li>", $event_meta['dak_events_arranger_name'][0]);
-	$return .= sprintf("<li>CC: %s</li>", $event_meta['dak_events_covercharge'][0]);
+
+	$location = "unspecified";
+	if (isset($event_meta['dak_event_common_location_name'][0])) {
+		$location = $event_meta['dak_event_common_location_name'][0];
+	} else if (isset($event_meta['dak_event_custom_location'][0])) {
+		$location = $event_meta['dak_event_custom_location'][0];
+	}
+
+	$categoryTaxonomy = wp_get_post_terms($post_id, 'dak_event_category');
+
+	$categories = "something";
+
+	if (!empty($categoryTaxonomy)) {
+		$catArr = array();
+		foreach ($categoryTaxonomy as $tax) {
+			$catArr[] = $tax->name;
+		}
+
+		$categories = join(", ", $catArr);
+	}
+
+	$return .= $categories . " @ " . $location;
+	$return .= sprintf("<li>Arrangør: %s</li>", $event_meta['dak_event_arranger_name'][0]);
+	$return .= sprintf("<li>CC: %s</li>", $event_meta['dak_event_covercharge'][0]);
 	$return .= sprintf("<li>Aldersgrese: %s</li>", (isset($event_meta['dak_event_age_limit'][0])?$event_meta['dak_event_age_limit'][0]:"20 år, 18 med studentbevis"));
 
 
