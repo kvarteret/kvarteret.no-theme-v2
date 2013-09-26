@@ -111,18 +111,36 @@ function twentytwelve_setup() {
 }
 add_action( 'after_setup_theme', 'twentytwelve_setup' );
 
-function kvarteret_rewrite_rules() {
-	add_rewrite_rule('program/([0-9]{4})/([0-9]{2})/page/([0-9]{1,})/?$',
-		'index.php?page_id=28&year=$matches[1]&monthnum=$matches[2]&paged=$matches[3]', 'top');
-	add_rewrite_rule('program/([0-9]{4})/([0-9]{2})/?$',
-		'index.php?page_id=28&year=$matches[1]&monthnum=$matches[2]', 'top');
-	add_rewrite_rule('program/([0-9]{4})/page/([0-9]{1,})/?$',
-		'index.php?page_id=28&year=$matches[1]&paged=$matches[2]', 'top');
-	add_rewrite_rule('program/([0-9]{4})/?$',
-		'index.php?page_id=28&year=$matches[1]', 'top');
-	
+function kvarteret_rewrite_rules($rules) {
+
+	$pages = get_pages(array(
+		'meta_key' => '_wp_page_template',
+		'meta_value' => 'archive-dak_event.php'
+	));
+
+	$myRules = array();
+
+	foreach($pages as $page) {
+		$slug = $page->post_name;
+		$id = $page->ID;
+
+		$myRules[$slug . '/([0-9]{4})/([0-9]{2})/page/([0-9]{1,})/?$'] =
+			'index.php?page_id=' . $id . '&year=$matches[1]&monthnum=$matches[2]&paged=$matches[3]';
+		$myRules[$slug . '/([0-9]{4})/([0-9]{2})/?$'] =
+			'index.php?page_id=' . $id . '&year=$matches[1]&monthnum=$matches[2]';
+		$myRules[$slug . '/([0-9]{4})/page/([0-9]{1,})/?$'] =
+			'index.php?page_id=' . $id . '&year=$matches[1]&paged=$matches[2]';
+		$myRules[$slug . '/([0-9]{4})/?$'] =
+			'index.php?page_id=' . $id . '&year=$matches[1]';
+	}
+
+	$rules = array_merge($myRules, $rules);
+
+	return $rules;
 }
-add_action('init', 'kvarteret_rewrite_rules');
+
+// Will only run on flush_rewrite_rules()
+add_action('page_rewrite_rules', 'kvarteret_rewrite_rules');
 
 /**
  * Enqueues scripts and styles for front-end.
@@ -548,4 +566,11 @@ function kvarteret_flush_rewrite_rules() {
 	if ( $pagenow == 'themes.php' && isset($_GET['activated']) ) {
 		flush_rewrite_rules();
 	}
+}
+
+add_action('switch_theme', 'kvarteret_deactivate');
+function kvarteret_deactivate() {
+	remove_action('page_rewrite_rules', 'kvarteret_rewrite_rules');
+
+	flush_rewrite_rules();
 }
