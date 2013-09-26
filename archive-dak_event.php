@@ -108,11 +108,11 @@ get_header(); ?>
 					<h2 class="inline-block"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a> <small class="time">(<?=$event_meta['dak_event_start_time'][0];?> - <?=$event_meta['dak_event_end_time'][0];?>)</small></h2>
 					
 					<div class="meta">
-						<?php if($event_meta['dak_event_covercharge'][0]) { 
+						<?php if(!empty($event_meta['dak_event_covercharge'][0])) { 
 								echo 'CC: ' . $event_meta['dak_event_covercharge'][0] . ' • '; 
 							}
 							?>
-						Aldersgrense: <?php if($event_meta['dak_event_age_limit'][0]) { 
+						Aldersgrense: <?php if(!empty($event_meta['dak_event_age_limit'][0])) { 
 								echo $event_meta['dak_event_age_limit'][0]; 
 							} else { 
 								echo '18 for studenter, 20 for andre'; 
