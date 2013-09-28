@@ -48,6 +48,20 @@ $query_array = array(
 	'paged' => get_query_var('paged')
 );
 
+$tags = get_query_var('tags');
+if (!empty($tags)) {
+	$query_array['tax_query'] = array(
+		array(
+			'taxonomy' => 'dak_event_category',
+			'field' => 'slug',
+			'terms' => explode(',', $tags),
+			'operator' => 'AND'
+		)
+	);
+}
+
+$event_query = new WP_Query($query_array);
+
 // Begin building of page
 
 get_header(); ?>
@@ -76,8 +90,6 @@ get_header(); ?>
 			</form>
 		</nav>
 		<?php
-			$event_query = new WP_Query($query_array);
-
 			$current_date = date('Y-m-d');
 			$loop_active_start_date = "";
 			$another_temp_date = "";
