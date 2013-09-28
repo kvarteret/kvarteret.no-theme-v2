@@ -124,14 +124,31 @@ function kvarteret_rewrite_rules($rules) {
 		$slug = $page->post_name;
 		$id = $page->ID;
 
+		$myRules[$slug . '/([0-9]{4})/([0-9]{2})/([-0-9a-zA-Z,]+)/page/([0-9]{1,})/?$'] =
+			'index.php?page_id=' . $id . '&year=$matches[1]&monthnum=$matches[2]&tags=$matches[3]&paged=$matches[4]';
 		$myRules[$slug . '/([0-9]{4})/([0-9]{2})/page/([0-9]{1,})/?$'] =
 			'index.php?page_id=' . $id . '&year=$matches[1]&monthnum=$matches[2]&paged=$matches[3]';
+
+		$myRules[$slug . '/([0-9]{4})/([0-9]{2})/([-0-9a-zA-Z,]+)/?$'] =
+			'index.php?page_id=' . $id . '&year=$matches[1]&monthnum=$matches[2]&tags=$matches[3]';
 		$myRules[$slug . '/([0-9]{4})/([0-9]{2})/?$'] =
 			'index.php?page_id=' . $id . '&year=$matches[1]&monthnum=$matches[2]';
+
+		$myRules[$slug . '/([0-9]{4})/([-0-9a-zA-Z,]+)/page/([0-9]{1,})/?$'] =
+			'index.php?page_id=' . $id . '&year=$matches[1]&tags=$matches[2]&paged=$matches[3]';
 		$myRules[$slug . '/([0-9]{4})/page/([0-9]{1,})/?$'] =
 			'index.php?page_id=' . $id . '&year=$matches[1]&paged=$matches[2]';
+
+		$myRules[$slug . '/([0-9]{4})/([-0-9a-zA-Z,]+)/?$'] =
+			'index.php?page_id=' . $id . '&year=$matches[1]&tags=$matches[2]';
 		$myRules[$slug . '/([0-9]{4})/?$'] =
 			'index.php?page_id=' . $id . '&year=$matches[1]';
+
+
+		$myRules[$slug . '/([-0-9a-zA-Z,]+)/page/([0-9]{1,})/?$'] =
+			'index.php?page_id=' . $id . '&tags=$matches[1]&paged=$matches[2]';
+		$myRules[$slug . '/([-0-9a-zA-Z,]+)/?$'] =
+			'index.php?page_id=' . $id . '&tags=$matches[1]';
 	}
 
 	$rules = array_merge($myRules, $rules);
@@ -141,6 +158,13 @@ function kvarteret_rewrite_rules($rules) {
 
 // Will only run on flush_rewrite_rules()
 add_action('page_rewrite_rules', 'kvarteret_rewrite_rules');
+
+function kvarteret_query_vars($vars) {
+	array_push($vars, 'tags');
+
+	return $vars;
+}
+add_filter('query_vars', 'kvarteret_query_vars');
 
 /**
  * Enqueues scripts and styles for front-end.
