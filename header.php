@@ -12,10 +12,10 @@
 
 if(!isset($language) || (isset($language) && $language == "no_NB")) {
 	setlocale ( LC_ALL , 'no_NB', 'no_NO', 'norwegian', 'bokmål');
-	echo "<script>console.log('PHP locale set to Norwegian');</script>";
+	//echo "<script>console.log('PHP locale set to Norwegian');</script>";
 } else {
 	setlocale ( LC_ALL, $language);
-	echo "<script>console.log('PHP locale set to ".$language."');</script>";
+	//echo "<script>console.log('PHP locale set to ".$language."');</script>";
 }
 ?>
 <!DOCTYPE html>
