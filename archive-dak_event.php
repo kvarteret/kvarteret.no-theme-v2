@@ -45,6 +45,8 @@ $query_array = array(
 		)
 	),
 	'order' => 'ASC',
+	'meta_key' => 'dak_event_start_date',
+	'orderby' => 'meta_value',
 	'paged' => get_query_var('paged')
 );
 
