@@ -91,7 +91,6 @@ if(!isset($language) || (isset($language) && $language == "no_NB")) {
 					Nav
 				</a>
 				
-				wp_nav_menu
 				<div class="nav-collapse">
 					<?php if (isset($language) && $language == "english") : ?>
 						<?php wp_nav_menu( array( 'container_class' => 'left', 'theme_location' => 'english_main_navigation_left' ) ); ?>
