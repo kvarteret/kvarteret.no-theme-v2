@@ -167,6 +167,32 @@ function kvarteret_query_vars($vars) {
 add_filter('query_vars', 'kvarteret_query_vars');
 
 /**
+ * $components can contain:
+ * array(
+ *  'year' => 2012,
+ *  'month' => 01,
+ *  'tags' => array(tag1, tag2)
+ * )
+ */
+function kvarteret_event_archive_link_maker($pageId, array $components = array()) {
+	$baseUrl = get_page_link($pageId);
+	$extra = "";
+
+	if (!empty($components['year'])) {
+		$extra .= $components['year'] . '/';
+	}
+
+	if (!empty($components['month'])) {
+		$extra .= $components['month'] . '/';
+	}
+
+	if (!empty($components['tags'])) {
+		$extra .= implode(',', $components['tags']) . '/';
+	}
+
+}
+
+/**
  * Enqueues scripts and styles for front-end.
  *
  * @since Kvarteret.no v2.0
