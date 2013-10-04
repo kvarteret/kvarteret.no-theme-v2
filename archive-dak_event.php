@@ -13,6 +13,8 @@
 $year = get_query_var('year');
 $monthnum = get_query_var('monthnum');
 
+error_log($year . ' ' . $monthnum);
+
 $dtStart = new DateTime();
 $dtEnd = clone $dtStart;
 $dtEnd->add(new DateInterval('P14D'));
@@ -73,12 +75,16 @@ get_header(); ?>
 	
 		<nav id="event_nav" class="event_nav clearfix">
 			<ul>
-				<li class="active"><a href="<?php echo get_page_link() ?>">neste 14 dager</a></li>
+				<li <?php if (empty($year) && empty($monthnum)) echo 'class="active"' ?>><a href="<?php echo get_page_link() ?>">neste 14 dager</a></li>
 				<?php 
 
 				$dt = new DateTime();
 				for ($i = 0; $i < 4; $i++) {
-					echo '<li><a href="' . get_page_link() . $dt->format('Y/m') .'">' . date_i18n('F', $dt->getTimestamp()). '</a></li>';
+					$active = "";
+					if ($dt->format('Yn') == $year.$monthnum) {
+						$active = "active";
+					}
+					echo '<li class="'.$active.'"><a href="' . get_page_link() . $dt->format('Y/m') .'">' . date_i18n('F', $dt->getTimestamp()). '</a></li>';
 					$dt = $dt->add(new DateInterval('P1M'));
 				}
 
