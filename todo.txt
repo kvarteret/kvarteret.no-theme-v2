@@ -1,0 +1,8 @@
+* bytte ut slider på forsiden
+* menyer må fikses (undermenyer må vises)
+
+* oppdatere rom-postene / andre poster (info på sidene)
+* få inn noe innhold på "Bilder & Film"-sidene
+* endre alle Google-Docs-linker til interne skjema
+	* få tak i evt. epostadresser disse skjemaene skal sendes til
+* få på plass informasjon om evt. ARG'er som ikke er på listen
