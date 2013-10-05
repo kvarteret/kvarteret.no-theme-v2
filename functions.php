@@ -416,6 +416,7 @@ if ( ! function_exists( 'twentytwelve_entry_meta' ) ) :
  * @since Kvarteret.no v2.0
  */
 function twentytwelve_entry_meta() {
+	/*
 	// Translators: used between list items, there is a space after the comma.
 	$categories_list = get_the_category_list( __( ', ', 'twentytwelve' ) );
 
@@ -450,7 +451,7 @@ function twentytwelve_entry_meta() {
 		$tag_list,
 		$date,
 		$author
-	);
+	);*/
 }
 endif;
 
