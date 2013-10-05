@@ -19,6 +19,12 @@ get_header(); ?>
 		<?php if ( have_posts() ) : ?>
 			<?php
 		        global $post;
+
+		        $featuredArray = array_merge(
+	        		get_posts('numberposts=3&category_name=featured'), 
+	        		get_posts('numberposts=3&dak_event_category=featured')
+	        	);
+
 		        $featured = get_posts('numberposts=3&category_name=featured'); // featured news
 		        $current_news = get_posts('numberposts=12&category_name=aktuelt,featured'); // all frontpage news
         	?>
@@ -28,7 +34,7 @@ get_header(); ?>
 				<?php
 				// start featured news loop
 				$featuredi = 0;
-			  	foreach($featured as $post) :
+			  	foreach($featuredArray as $post) :
 					setup_postdata($post);
 					$featuredi++
 				?>
@@ -41,13 +47,6 @@ get_header(); ?>
 						</a>
 					</article>
 				<?php endforeach; ?>
-					<article class="item">
-						<a href="#" class="clearfix">
-							<img src="http://placekitten.com/960/496" class="article_thumbnail responsive" alt="" />
-							
-							<h2>Dumdedum</h2>
-						</a>
-					</article>
 				</div>
 				<a class="carousel-control left" href="#featured_articles" data-slide="prev">&lsaquo;</a>
   				<a class="carousel-control right" href="#featured_articles" data-slide="next">&rsaquo;</a>
