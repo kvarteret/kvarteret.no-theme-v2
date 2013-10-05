@@ -117,7 +117,7 @@ get_header(); ?>
 				// echo date headline
 				if($loop_active_start_date != $event_meta['dak_event_start_date'][0]) {
 					$loop_active_start_date = $event_meta['dak_event_start_date'][0];
-					echo '<div class="date clear_both offset-top-by-one">'. date_i18n('l j. F Y', strtotime($start_datetime)).'</div>';
+					echo '<div class="date clear_both offset-top-by-one">'. date_i18n('l j. F Y', $start_datetime).'</div>';
 				}
 
 				if($loop_active_start_time != $event_meta['dak_event_start_time'][0] || $another_temp_date != $loop_active_start_date) {
