@@ -76,9 +76,9 @@ if(!isset($language) || (isset($language) && $language == "no_NB")) {
 			</a>
 			
 			<ul id="kvarteret_feeds" class="">
-				<li><a href=""><img src="<?php bloginfo('template_directory'); ?>/images/facebook.png" alt="Facebook" /></a></li>
-				<li><a href=""><img src="<?php bloginfo('template_directory'); ?>/images/twitter.png" alt="Twitter" /></a></li>				
-				<li><a href=""><img src="<?php bloginfo('template_directory'); ?>/images/rss.png" alt="RSS 2.0" /></a></li>
+				<li><a href="https://www.facebook.com/Kvarteret"><img src="<?php bloginfo('template_directory'); ?>/images/facebook.png" alt="Facebook" /></a></li>
+				<li><a href="https://twitter.com/kvarteret"><img src="<?php bloginfo('template_directory'); ?>/images/twitter.png" alt="Twitter" /></a></li>				
+				<li><a href="http://kvarteret.no/feed/"><img src="<?php bloginfo('template_directory'); ?>/images/rss.png" alt="RSS 2.0" /></a></li>
 			</ul>
 			
 			<form id="search" action="<?php echo site_url(); ?>/?" method="get">
