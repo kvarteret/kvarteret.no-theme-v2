@@ -106,28 +106,37 @@ get_header(); ?>
 			$loop_active_start_time = "";
 
 			// The Loop
+
 			while ( $event_query->have_posts() ) : $event_query->the_post();
 				$event_meta = get_post_meta(get_the_ID());
 				$css_offset_by = "";
 
+				$start_datetime = strtotime($event_meta['dak_event_start_datetime'][0]);
+				$end_datetime = strtotime($event_meta['dak_event_end_datetime'][0]);
+
 				// echo date headline
 				if($loop_active_start_date != $event_meta['dak_event_start_date'][0]) {
 					$loop_active_start_date = $event_meta['dak_event_start_date'][0];
-					echo '<div class="date clear_both offset-top-by-one">'.strftime('%A, %d. %B %Y', strtotime($event_meta['dak_event_start_date'][0])).'</div>';
+					echo '<div class="date clear_both offset-top-by-one">'. date_i18n('l j. F Y', strtotime($start_datetime)).'</div>';
 				}
 
 				if($loop_active_start_time != $event_meta['dak_event_start_time'][0] || $another_temp_date != $loop_active_start_date) {
 					$another_temp_date = $loop_active_start_date;
 					$loop_active_start_time = $event_meta['dak_event_start_time'][0];
 					$css_offset_by = "";
-					echo '<div class="event time two columns text-right">'.$event_meta['dak_event_start_time'][0].'</div>';
+					echo '<div class="event time two columns text-right">'. datE_i18n('H:i', $start_datetime) .'</div>';
 				} else {
 					$css_offset_by = "offset-by-two";
 				}
 
 		?>
 				<div class="event content fourteen columns inline-block <?=$css_offset_by; ?>">
-					<h2 class="inline-block"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a> <small class="time">(<?=$event_meta['dak_event_start_time'][0];?> - <?=$event_meta['dak_event_end_time'][0];?>)</small></h2>
+					<h2 class="inline-block">
+					  <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+					  <small class="time">
+					    (<?php echo date_i18n('H:i', $start_datetime); ?> - <?php echo date_i18n('H:i', $end_datetime); ?>)
+                      </small>
+					</h2>
 					
 					<div class="meta">
 						<?php if(!empty($event_meta['dak_event_covercharge'][0])) { 

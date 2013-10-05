@@ -568,14 +568,18 @@ function kvarteret_author_meta($id, $custom_author) {
 
 // generate date for event meta
 function kvarteret_event_meta_date($start_date, $start_time, $end_date, $end_time) {
+	$start_datetime = strtotime($start_date . ' ' . $start_time);
+	$end_datetime = strtotime($end_date . ' ' . $end_time);
+
 	return 
 		sprintf(
 			'%s kl. %s til %s kl. %s',
-			date('d. M Y', strtotime($start_date)), 
-			date('H:i', strtotime($start_time)), 
-			($end_date != $start_date ? date('d. M Y', strtotime($end_date)):""), 
-			date('H:i', strtotime($end_time))
+			date_i18n('d. M Y', $start_datetime), 
+			date('H:i', $start_datetime),
+			($end_date != $start_date ? date_i18n('d. M Y', $end_datetime) : ""), 
+			date('H:i', $end_datetime)
 		);
+
 } 
 
 /**
@@ -583,7 +587,13 @@ function kvarteret_event_meta_date($start_date, $start_time, $end_date, $end_tim
  * @since Kvarteret.no v2.0
  */
 function kvarteret_event_meta($post_id, $event_meta) {
-	$return = '<div class="date">'.kvarteret_event_meta_date($event_meta['dak_event_start_date'][0], $event_meta['dak_event_start_time'][0], $event_meta['dak_event_end_date'][0], $event_meta['dak_event_end_time'][0]).'</div>';
+	$return = '<div class="date">' . 
+		kvarteret_event_meta_date(
+			$event_meta['dak_event_start_date'][0],
+			$event_meta['dak_event_start_time'][0],
+			$event_meta['dak_event_end_date'][0],
+			$event_meta['dak_event_end_time'][0]
+		) . '</div>';
 
 	$location = "unspecified";
 	if (isset($event_meta['dak_event_common_location_name'][0])) {
@@ -605,16 +615,16 @@ function kvarteret_event_meta($post_id, $event_meta) {
 		$categories = join(", ", $catArr);
 	}
 
+    $age_limit = "20 år, 18 med studentbevis";
+	if (!empty($event_meta['dak_event_age_limit'][0])) {
+		$age_limit = $event_meta['dak_event_age_limit'][0];
+	}
+
 	$return .= $categories . " @ " . $location;
 	$return .= sprintf("<li>Arrangør: %s</li>", $event_meta['dak_event_arranger_name'][0]);
 	$return .= sprintf("<li>CC: %s</li>", $event_meta['dak_event_covercharge'][0]);
-	$return .= sprintf("<li>Aldersgrese: %s</li>", (isset($event_meta['dak_event_age_limit'][0])?$event_meta['dak_event_age_limit'][0]:"20 år, 18 med studentbevis"));
+	$return .= sprintf("<li>Aldersgrense: %s</li>", $age_limit);
 
-
-	// 	Konsert i Teglverket
-	// Arrangør: RF
-	// CC: 200,-
-	// Aldersgrense: 20 år (18 med studentbevis/forhåndskjøpt billett)
 	return $return;
 }
 
