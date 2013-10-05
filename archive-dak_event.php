@@ -188,7 +188,7 @@ get_header(); ?>
 					$prevLinkComponents['year'] = $dtPrev->format("Y");
 					$prevLinkComponents['monthnum'] = $dtPrev->format("m");
 					
-					$linkTextDateFormat = "Y/m";
+					$linkTextDateFormat = "F Y";
 				}
 
 				$prevURL = kvarteret_event_archive_link_maker($pageId, $prevLinkComponents);
@@ -202,8 +202,9 @@ get_header(); ?>
 				) );
 
 				echo "<div class=\"month-year-nav\">\n";
-				echo "<a href=\"" . $prevURL . "\" class=\"page-numbers\">" . $dtPrev->format($linkTextDateFormat) . "</a>\n";
-				echo "<a href=\"" . $nextURL . "\" class=\"page-numbers\">" . $dtNext->format($linkTextDateFormat) . "</a>\n";
+				echo "<a href=\"" . $prevURL . "\" class=\"page-numbers\">&laquo; " . date_i18n($linkTextDateFormat, $dtPrev->getTimestamp()) . "</a>";
+				echo '-';
+				echo "<a href=\"" . $nextURL . "\" class=\"page-numbers\">" . date_i18n($linkTextDateFormat, $dtNext->getTimestamp()) . " &raquo;</a>\n";
 				echo "</div>\n";
 			?>
 		</div>
