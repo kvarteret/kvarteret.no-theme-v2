@@ -1,3 +1,4 @@
+@charset "CP850";
 /*
 Theme Name: Kvarteret.no v 2
 Theme URI: http://github.com/kvarteret/
@@ -947,9 +948,9 @@ a {
 #main_header:before {
   border-left: 475px solid transparent;
   border-right: 475px solid transparent;
-  border-bottom: 114px solid #fff;
+  border-bottom: 116px solid #fff;
   position: absolute;
-  top: -114px;
+  top: -116px;
   left: 50%;
   margin-left: -475px;
   content: ''; }
@@ -1441,9 +1442,9 @@ footer p {
 
   /* height fix for Chrome (at resize) and Firefox */
   #main_header:before {
-    border-left: 555px solid transparent;
-    border-right: 555px solid transparent;
-    margin-left: -555px; } }
+    border-left: 560px solid transparent;
+    border-right: 560px solid transparent;
+    margin-left: -560px; } }
 /* Laptop (960-1299) */
 @media only screen and (min-width: 960px) and (max-width: 1299px) {
   .carousel-inner {
