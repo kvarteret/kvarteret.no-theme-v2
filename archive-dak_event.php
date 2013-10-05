@@ -13,6 +13,8 @@
 $year = get_query_var('year');
 $monthnum = get_query_var('monthnum');
 
+$pageId = get_the_ID();
+
 error_log($year . ' ' . $monthnum);
 
 $dtStart = new DateTime();
@@ -148,12 +150,52 @@ get_header(); ?>
 
 				$big = 999999999; // need an unlikely integer
 
+				$nextLinkComponents = array();
+				if (!empty($tags)) {
+					$nextLinkComponents['tags'] = explode(',', $tags);
+				}
+				$prevLinkComponents = $nextLinkComponents;
+
+				$linkTextDateFormat = "";
+
+				$dtNext = clone $dtStart;
+				$dtPrev = clone $dtStart;
+
+				if (!empty($year) && empty($monthnum)) {
+					$dtNext->add(new DateInterval("P1Y"));
+					$dtPrev->sub(new DateInterval("P1Y"));
+
+					$nextLinkComponents['year'] = $dtNext->format("Y");
+					$prevLinkComponents['year'] = $dtPrev->format("Y");
+
+					$linkTextDateFormat = "Y";
+				} else {
+					$dtNext->add(new DateInterval("P1M"));
+					$dtPrev->sub(new DateInterval("P1M"));
+					
+					$nextLinkComponents['year'] = $dtNext->format("Y");
+					$nextLinkComponents['monthnum'] = $dtNext->format("m");
+
+					$prevLinkComponents['year'] = $dtPrev->format("Y");
+					$prevLinkComponents['monthnum'] = $dtPrev->format("m");
+					
+					$linkTextDateFormat = "Y/m";
+				}
+
+				$prevURL = kvarteret_event_archive_link_maker($pageId, $linkComponents);
+				$nextURL = kvarteret_event_archive_link_maker($pageId, $linkComponents);
+
 				echo paginate_links( array(
 					'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
 					'format' => '?paged=%#%',
 					'current' => max( 1, get_query_var('paged') ),
 					'total' => $event_query->max_num_pages
 				) );
+
+				echo "<div class=\"month-year-nav\">\n";
+				echo "<a href=\"" . $prevURL . "\" class=\"page-numbers\">" . $dtPrev->format($linkTextDateFormat) . "</a>\n";
+				echo "<a href=\"" . $nextURL . "\" class=\"page-numbers\">" . $dtNext->format($linkTextDateFormat) . "</a>\n";
+				echo "</div>\n";
 			?>
 		</div>
 	</section>
