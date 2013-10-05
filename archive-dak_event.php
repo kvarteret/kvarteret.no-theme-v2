@@ -182,8 +182,8 @@ get_header(); ?>
 					$linkTextDateFormat = "Y/m";
 				}
 
-				$prevURL = kvarteret_event_archive_link_maker($pageId, $linkComponents);
-				$nextURL = kvarteret_event_archive_link_maker($pageId, $linkComponents);
+				$prevURL = kvarteret_event_archive_link_maker($pageId, $prevLinkComponents);
+				$nextURL = kvarteret_event_archive_link_maker($pageId, $nextLinkComponents);
 
 				echo paginate_links( array(
 					'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
