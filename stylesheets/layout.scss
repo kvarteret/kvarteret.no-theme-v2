@@ -53,10 +53,10 @@ a {
 .standard_wrapper {
 	background: #fff;
 	img {
-		&.left {
+		&.left,&.alignleft {
 			margin-right: 10px;
 		}
-		&.right {
+		&.right,&.alignright {
 			margin-left: 10px;
 		}
 	}

@@ -1,3 +1,4 @@
+@charset "CP850";
 /*
 Theme Name: Kvarteret.no v 2
 Theme URI: http://github.com/kvarteret/
@@ -930,9 +931,9 @@ a {
 
 .standard_wrapper {
   background: #fff; }
-  .standard_wrapper img.left {
+  .standard_wrapper img.left, .standard_wrapper img.alignleft {
     margin-right: 10px; }
-  .standard_wrapper img.right {
+  .standard_wrapper img.right, .standard_wrapper img.alignright {
     margin-left: 10px; }
 
 .responsive, .article_content img, .wp-caption img {
