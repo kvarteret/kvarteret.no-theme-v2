@@ -930,6 +930,10 @@ a {
 
 .standard_wrapper {
   background: #fff; }
+  .standard_wrapper img.left {
+    margin-right: 10px; }
+  .standard_wrapper img.right {
+    margin-left: 10px; }
 
 .responsive, .article_content img, .wp-caption img {
   width: 100% !important;
