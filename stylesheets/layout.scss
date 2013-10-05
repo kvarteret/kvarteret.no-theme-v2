@@ -37,7 +37,7 @@ body {
 	-o-background-size: cover;
 	background-size: cover;
 
-	font-family: Tahoma, Helvetica, Arial, sans-serif;
+	font-family: Tahoma, Kalimati, Helvetica, Arial, sans-serif;
 }
 
 a {
@@ -45,6 +45,9 @@ a {
 	color: #26A9FF;
 }
 
+.month-year-nav {
+	margin-top: 25px;
+}
 .month-year-nav a {
 	font-size: 1.2em;
 	margin: 5px;
@@ -433,7 +436,7 @@ footer {
 	bottom: 0;
 	margin-bottom: 0;
 
-	font-family: "BebasNeueRegular", "Bebas Neue", Tahoma, sans-serif;
+	font-family: "Bebas Neue", Tahoma, Kalimati, sans-serif;
 	font-size: 40px;
 	line-height: 82px;
 	color: #fff;
