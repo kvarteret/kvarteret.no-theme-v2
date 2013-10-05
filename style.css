@@ -1,4 +1,3 @@
-@charset "CP850";
 /*
 Theme Name: Kvarteret.no v 2
 Theme URI: http://github.com/kvarteret/
@@ -925,6 +924,10 @@ a {
   text-decoration: none;
   color: #26A9FF; }
 
+.month-year-nav a {
+  font-size: 1.2em;
+  margin: 5px; }
+
 .standard_wrapper {
   background: #fff; }
 
@@ -1015,6 +1018,12 @@ a {
   border-top-left-radius: 3px;
   border-top-right-radius: 3px; }
 
+.nav-left {
+  float: left; }
+
+.nav-right {
+  float: right; }
+
 li.active {
   position: relative; }
 
@@ -1057,27 +1066,27 @@ li.active {
   color: #ccc;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); }
 
-#main_header #main_nav .left ul > li, #main_header #main_nav .right ul > li {
+#main_nav ul > li {
   position: relative; }
 
-#main_header #main_nav .left ul {
+#main_nav .nav-left ul {
   margin: 0;
   margin-left: 12px; }
 
-#main_header #main_nav .left ul > li {
+#main_nav .nav-left ul > li {
   float: left;
   margin-right: 15px; }
 
-#main_header #main_nav .right ul {
+#main_nav .nav-right ul {
   margin: 0;
   margin-right: 12px;
   text-align: right; }
 
-#main_header #main_nav .right ul > li {
+#main_nav .nav-right ul > li {
   display: inline-block;
   margin-left: 15px; }
 
-#main_header #main_nav .sub-menu {
+#main_nav .sub-menu {
   position: absolute;
   left: 50%;
   margin-left: -100px;
@@ -1496,7 +1505,12 @@ footer p {
 /* All Mobile Sizes (devices and browser) */
 @media only screen and (max-width: 767px) {
   #main_header {
-    margin-top: 0px !important; }
+    margin-top: 0px !important;
+    padding-top: 80px; }
+
+  #main_nav .nav-right, #main_nav .nav-right li, #main_nav .nav-right a {
+    display: block;
+    text-align: center; }
 
   #main_header:before {
     border: 0; }
@@ -1592,7 +1606,7 @@ footer p {
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
 @media only screen and (max-width: 479px) {
   header#main_header {
-    margin-top: 20px;
+    padding-top: 80px;
     border-radius: 0; }
 
   #kvarteret_feeds, #search {
@@ -1614,10 +1628,7 @@ footer p {
     clear: both;
     background: rgba(0, 0, 0, 0.8); }
 
-  .nav-collapse .left, .nav-collapse .right, #main_header #main_nav .left ul > li, #main_header #main_nav .right ul > li {
-    float: none;
-    display: block;
-    text-align: left; }
-
-  .nav-collapse #main_header #main_nav .right ul > li {
-    display: block; } }
+  #main_nav li, #main_nav ul, #main_nav a, .nav-right, .nav-left {
+    float: none !important;
+    display: block !important;
+    text-align: center !important; } }

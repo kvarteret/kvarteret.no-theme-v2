@@ -93,16 +93,16 @@ if(!isset($language) || (isset($language) && $language == "no_NB")) {
 				
 				<div class="nav-collapse">
 					<?php if (isset($language) && $language == "english") : ?>
-						<?php wp_nav_menu( array( 'container_class' => 'left', 'theme_location' => 'english_main_navigation_left' ) ); ?>
+						<?php wp_nav_menu( array( 'container_class' => 'nav-left', 'theme_location' => 'english_main_navigation_left' ) ); ?>
 					<?php else : ?>
-						<?php wp_nav_menu( array( 'container_class' => 'left', 'theme_location' => 'main_navigation_left' ) ); ?>
+						<?php wp_nav_menu( array( 'container_class' => 'nav-left', 'theme_location' => 'main_navigation_left' ) ); ?>
 					<?php endif; ?>
 				</div>
 				<div class="nav-collapse">
 					<?php if (isset($language) && $language == "english") : ?>
-						<?php wp_nav_menu( array( 'container_class' => 'left', 'theme_location' => 'english_main_navigation_right' ) ); ?>
+						<?php wp_nav_menu( array( 'container_class' => 'nav-right', 'theme_location' => 'english_main_navigation_right' ) ); ?>
 					<?php else : ?>
-						<?php wp_nav_menu( array( 'container_class' => 'right', 'theme_location' => 'main_navigation_right' ) ); ?>
+						<?php wp_nav_menu( array( 'container_class' => 'nav-right', 'theme_location' => 'main_navigation_right' ) ); ?>
 					<?php endif; ?>
 				</div>
 			</nav>
