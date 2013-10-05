@@ -89,7 +89,7 @@ get_header(); ?>
 				}
 
 				?>
-				<li><a href="">Arkiv</a></li>
+				<?php // <li><a href="">Arkiv</a></li> ?>
 			</ul>
 			<form class="white right js-search" action="<?php echo site_url(); ?>/?post_type=dak_event&s=" method="get">
 				<input type="text" name="s" placeholder="søk..." />
