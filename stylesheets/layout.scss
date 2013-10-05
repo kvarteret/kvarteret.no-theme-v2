@@ -409,9 +409,9 @@ footer {
 	text-decoration: none;
 }
 .featured_articles h2, .article_header h1 {
-	background: rgba(0,0,0,0.9);
+	background: rgba(0,0,0,0.7);
 	position:absolute;
-	bottom:0;
+	bottom: 0;
 	margin-bottom: 0;
 
 	font-family: "BebasNeueRegular", "Bebas Neue", Tahoma, sans-serif;
@@ -512,6 +512,10 @@ footer {
     -webkit-transition: 0.6s ease-in-out left;
   }
 
+  .carousel .item a {
+  	height: 495px;
+  }
+
   .carousel .item > img {
     display: block;
     line-height: 1;
@@ -566,7 +570,8 @@ footer {
   line-height: 30px;
   color: #fff;
   text-align: center;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.4);
+  cursor: pointer;
 }
 
   .carousel-control.right {
