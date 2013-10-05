@@ -179,17 +179,18 @@ function kvarteret_event_archive_link_maker($pageId, array $components = array()
 	$extra = "";
 
 	if (!empty($components['year'])) {
-		$extra .= $components['year'] . '/';
+		$extra .= sprintf("%04d", $components['year']) . '/';
 	}
 
-	if (!empty($components['month'])) {
-		$extra .= $components['month'] . '/';
+	if (!empty($components['monthnum'])) {
+		$extra .= sprintf("%02d", $components['monthnum']) . '/';
 	}
 
 	if (!empty($components['tags'])) {
 		$extra .= implode(',', $components['tags']) . '/';
 	}
 
+	return $baseUrl . $extra;
 }
 
 /**
