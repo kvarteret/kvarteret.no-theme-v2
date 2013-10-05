@@ -20,7 +20,7 @@ get_header(); ?>
 		<header class="single_header article_header clearfix">
 			<?php 
 				if( has_post_thumbnail() ) {
-					the_post_thumbnail('post-thumbnail', array('class' => 'article_thumbnail responsive'));
+					the_post_thumbnail('full-thumbnail', array('class' => 'article_thumbnail responsive'));
 				} else {
 					echo '<img src="' . get_bloginfo('template_directory') . '/images/missing_image.png" alt="" clasS="article_thumbnail responsive" />';
 				}
