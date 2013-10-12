@@ -914,7 +914,7 @@ img.scale-with-grid, img.responsive {
   font-style: normal; }
 
 body {
-  background: url("images/background.jpg") center top no-repeat black;
+  background: url("images/old_background.jpg") center top no-repeat black;
   background-size: 100% auto;
   font-family: Tahoma, Kalimati, Helvetica, Arial, sans-serif; }
 
