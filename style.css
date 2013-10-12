@@ -1,3 +1,4 @@
+@charset "CP850";
 /*
 Theme Name: Kvarteret.no v 2
 Theme URI: http://github.com/kvarteret/
@@ -971,6 +972,9 @@ a {
   right: 50%;
   margin: 0;
   margin-right: 100px; }
+  #kvarteret_feeds img {
+    height: 20px;
+    width: 20px; }
 
 #kvarteret_feeds li {
   display: inline-block;
@@ -987,7 +991,9 @@ a {
   border: 1px solid #ccc;
   border-radius: 3px;
   width: 100px;
-  float: left; }
+  float: left;
+  padding: 2px;
+  margin-top: 2px; }
 
 #search button {
   text-indent: -9999px;
@@ -1015,7 +1021,7 @@ a {
   /* W3C */
   /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5190f', endColorstr='#a8120b',GradientType=0 ); /* IE6-9 */
   font-family: "Bebas Neue Regular", "Bebas Neue", Tahoma, Helvetica, Arial, sans-serif;
-  font-size: 1.5em;
+  font-size: 1.9em;
   height: 46px;
   position: relative;
   width: 100%;
