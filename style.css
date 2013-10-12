@@ -915,10 +915,6 @@ img.scale-with-grid, img.responsive {
 
 body {
   background: url("images/background.jpg") center top no-repeat black;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
   font-family: Tahoma, Kalimati, Helvetica, Arial, sans-serif; }
 
 a {
